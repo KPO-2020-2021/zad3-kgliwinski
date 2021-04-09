@@ -5,7 +5,7 @@
 #include <iostream>
 class Rectangle{
 
-Vector a,b,c,d;
+Vector a,b,c,d; //wierzcholki prostokata
 
 public:
 Rectangle();

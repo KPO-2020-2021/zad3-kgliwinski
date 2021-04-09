@@ -45,7 +45,13 @@ Rectangle Rectangle::translation(Vector const &tran)
 
     return translated;
 }
-
+/******************************************************************************
+ |  Funkcja zwracajaca wierzcholki prostokata                                 |
+ |  Argumenty:                                                                |
+ |      Referencje wektorow aX,bX,cX,dX                                       |
+ |  Zwraca:                                                                   |
+ |      Zmienia wartosci wektorow z wejscia                                   |
+ */
 void Rectangle::get_rect( Vector &aX, Vector &bX, Vector &cX, Vector &dX) const
 {
 
@@ -55,7 +61,12 @@ void Rectangle::get_rect( Vector &aX, Vector &bX, Vector &cX, Vector &dX) const
     dX = d;
 
 }
-
+/******************************************************************************
+ |  Przeciazenie operatora <<                                                 |
+ |  Argumenty:                                                                |
+ |      out - strumien wejsciowy,                                             |
+ |      Rec - prostokat.                                                         |
+ */
 std::ostream &operator<<(std::ostream &out, Rectangle const &Rec)
 {
     Vector aX, bX, cX, dX;

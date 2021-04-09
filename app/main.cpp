@@ -128,12 +128,18 @@ int main() {
 
   std::cout << "Matrix:" << std::endl;
   Matrix tmpM1 = Matrix();
+  
   std::cout << "Matrix - konstruktor bezparametryczny:\n" << tmpM1 << std::endl;
   double argumentsM[][SIZE] = {{1.0, 2.0},{3.0, 4.0}};
   Matrix tmpM2 = Matrix(argumentsM);
   std::cout << "Matrix - konstruktor parametryczny:\n" << tmpM2 << std::endl;
-  Rectangle a;
-  std::cout << "Rectangle - konstruktor bezparametryczny:\n" << a << std::endl;
+  
+  Rectangle tmpR1;
+  std::cout << "Rectangle - konstruktor bezparametryczny:\n" << tmpR1 << std::endl;
+  double argsA[] = {1,4}, argsB[] = {1,2}, argsC[] = {3,2}, argsD[] = {3,4};
+  Vector a1(argsA),b1(argsB),c1(argsC),d1(argsD);
+  Rectangle tmpR2(a1,b1,c1,d1);
+  std::cout << "Rectangle - konstruktor parametryczny:\n" << tmpR2 << std::endl;
     PzG::LaczeDoGNUPlota  Lacze;  // Ta zmienna jest potrzebna do wizualizacji
                                 // rysunku prostokata
 
