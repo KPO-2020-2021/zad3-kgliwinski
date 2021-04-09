@@ -16,6 +16,7 @@
 #include "example.h"
 #include "vector.hh"
 #include "matrix.hh"
+#include "rectangle.hh"
 #include "../include/lacze_do_gnuplota.hh"
 
 /*!
@@ -131,7 +132,8 @@ int main() {
   double argumentsM[][SIZE] = {{1.0, 2.0},{3.0, 4.0}};
   Matrix tmpM2 = Matrix(argumentsM);
   std::cout << "Matrix - konstruktor parametryczny:\n" << tmpM2 << std::endl;
-
+  Rectangle a;
+  std::cout << "Rectangle - konstruktor bezparametryczny:\n" << a << std::endl;
     PzG::LaczeDoGNUPlota  Lacze;  // Ta zmienna jest potrzebna do wizualizacji
                                 // rysunku prostokata
 
@@ -173,4 +175,6 @@ int main() {
   // just to show that it is accessible from main.cpp.
   Dummy d = Dummy();
   return d.doSomething() ? 0 : -1;
+
+
 }

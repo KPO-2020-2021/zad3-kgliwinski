@@ -42,6 +42,7 @@ set(SOURCES          # All .cpp files in src/
     src/lacze_do_gnuplota.cpp
     src/vector.cpp
     src/matrix.cpp
+    src/rectangle.cpp
 )
 set(TESTFILES        # All .cpp files in tests/
     tests/main.cpp
