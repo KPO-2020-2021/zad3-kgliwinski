@@ -1,8 +1,9 @@
 #pragma once
 
 #include "size.hh"
-#include <iostream>
 
+#include <iostream>
+#include <cmath>
 class Vector {
 
 private:
@@ -22,6 +23,8 @@ public:
     Vector operator * (const double &tmp);
 
     Vector operator / (const double &tmp);
+
+    Vector rotate(const double &theta);
 
     const double &operator [] (int index) const;
 

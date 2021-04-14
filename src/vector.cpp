@@ -1,5 +1,5 @@
 #include "vector.hh"
-
+#include "matrix.hh"
 /******************************************************************************
  |  Konstruktor klasy Vector.                                                 |
  |  Argumenty:                                                                |
@@ -158,4 +158,25 @@ std::istream &operator >> (std::istream &in, Vector &tmp) {
     }
     std::cout << std::endl;
     return in;
+}
+
+/******************************************************************************
+ | Obrot wektora o kat theta wokol srodka ukladu wspolrzednych                |
+ | Argumenty:                                                                 |
+ |      theta - kat obrotu                                                    |
+ | Zwraca:                                                                    |
+ |      obrocony wektor
+ */
+
+Vector Vector::rotate(const double &theta){
+    Vector rotated;
+    if (SIZE == 2){
+        double tmp[][SIZE] = {{cos(theta), -sin(theta)}, {sin(theta), cos(theta)}};
+        Matrix transformation(tmp);
+        rotated = transformation * *this;
+    }
+    else {
+        std::cerr << "ERROR: Nie zdefiniowano macierzy obrotu dla przestrzeni innej niz dwuwymiarowa." << std::endl;
+    }
+    return rotated;
 }

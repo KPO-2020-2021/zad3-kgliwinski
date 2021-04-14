@@ -46,7 +46,7 @@ Rectangle Rectangle::translation(Vector const &tran)
     return translated;
 }
 /******************************************************************************
- |  Funkcja zwracajaca wierzcholki prostokata                                 |
+ |  Funkcja zwracajaca wierzcholki prostokata (przypisuje je zmiennym)        |
  |  Argumenty:                                                                |
  |      Referencje wektorow aX,bX,cX,dX                                       |
  |  Zwraca:                                                                   |
@@ -65,7 +65,7 @@ void Rectangle::get_rect( Vector &aX, Vector &bX, Vector &cX, Vector &dX) const
  |  Przeciazenie operatora <<                                                 |
  |  Argumenty:                                                                |
  |      out - strumien wejsciowy,                                             |
- |      Rec - prostokat.                                                         |
+ |      Rec - prostokat.                                                      |
  */
 std::ostream &operator<<(std::ostream &out, Rectangle const &Rec)
 {
@@ -77,4 +77,22 @@ std::ostream &operator<<(std::ostream &out, Rectangle const &Rec)
     out << "Wierzcholek D: " << std::endl << dX << std::endl;
 
     return out;
+}
+
+/******************************************************************************
+ | Obrot prostokata o kat theta wokol srodka ukladu wspolrzednych             |
+ | Argumenty:                                                                 |
+ |      theta - kat obrotu                                                    |
+ | Zwraca:                                                                    |
+ |      obrocony prostokat                                                    |
+ */
+Rectangle Rectangle::rotate(const double &theta) {
+    Rectangle rotated;
+    
+    rotated.a = a.rotate(theta);
+    rotated.b = b.rotate(theta);
+    rotated.c = c.rotate(theta);
+    rotated.d = d.rotate(theta);
+
+    return rotated;
 }
