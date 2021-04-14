@@ -163,15 +163,16 @@ std::istream &operator >> (std::istream &in, Vector &tmp) {
 /******************************************************************************
  | Obrot wektora o kat theta wokol srodka ukladu wspolrzednych                |
  | Argumenty:                                                                 |
- |      theta - kat obrotu                                                    |
+ |      theta - kat obrotu ( w stopniach )                                    |
  | Zwraca:                                                                    |
  |      obrocony wektor
  */
 
 Vector Vector::rotate(const double &theta){
     Vector rotated;
+    double theta_rad = theta * PI /180;
     if (SIZE == 2){
-        double tmp[][SIZE] = {{cos(theta), -sin(theta)}, {sin(theta), cos(theta)}};
+        double tmp[][SIZE] = {{cos(theta_rad), -sin(theta_rad)}, {sin(theta_rad), cos(theta_rad)}};
         Matrix transformation(tmp);
         rotated = transformation * *this;
     }
