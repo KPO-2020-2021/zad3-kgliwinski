@@ -17,6 +17,10 @@ Rectangle translation(Vector const &tran) ;
 Rectangle rotate(const double &theta) ;
 
 void get_rect( Vector &aX, Vector &bX, Vector &cX, Vector &dX) const;
+
+bool check_len() const;
+
+bool check_angle() const;
 };
 
 std::ostream &operator<<(std::ostream &out,  Rectangle const &Rec);

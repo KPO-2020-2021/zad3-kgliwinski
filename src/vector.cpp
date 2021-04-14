@@ -7,12 +7,13 @@
  |  Zwraca:                                                                   |
  |      Tablice wypelniona wartoscia 0.                                       |
  */
-Vector::Vector() {
-    for (int i = 0; i < SIZE; ++i) {
+Vector::Vector()
+{
+    for (int i = 0; i < SIZE; ++i)
+    {
         size[i] = 0;
     }
 }
-
 
 /******************************************************************************
  |  Konstruktor klasy Vector.                                                 |
@@ -22,12 +23,13 @@ Vector::Vector() {
  |      Tablice wypelniona wartosciami podanymi w argumencie.                 |
  */
 
-Vector::Vector(double tmp[SIZE]) {
-    for (int i = 0; i < SIZE; ++i) {
+Vector::Vector(double tmp[SIZE])
+{
+    for (int i = 0; i < SIZE; ++i)
+    {
         size[i] = tmp[i];
     }
 }
-
 
 /******************************************************************************
  |  Realizuje dodawanie dwoch wektorow.                                       |
@@ -38,14 +40,15 @@ Vector::Vector(double tmp[SIZE]) {
  |      Sume dwoch skladnikow przekazanych jako wskaznik                      |
  |      na parametr.                                                          |
  */
-Vector Vector::operator + (const Vector &v) {
+Vector Vector::operator+(const Vector &v)
+{
     Vector result;
-    for (int i = 0; i < SIZE; ++i) {
+    for (int i = 0; i < SIZE; ++i)
+    {
         result[i] = size[i] += v[i];
     }
     return result;
 }
-
 
 /******************************************************************************
  |  Realizuje odejmowanie dwoch wektorow.                                     |
@@ -56,14 +59,15 @@ Vector Vector::operator + (const Vector &v) {
  |      Roznice dwoch skladnikow przekazanych jako wskaznik                   |
  |      na parametr.                                                          |
  */
-Vector Vector::operator - (const Vector &v) {
+Vector Vector::operator-(const Vector &v)
+{
     Vector result;
-    for (int i = 0; i < SIZE; ++i) {
+    for (int i = 0; i < SIZE; ++i)
+    {
         result[i] = size[i] -= v[i];
     }
     return result;
 }
-
 
 /******************************************************************************
  |  Realizuje mnozenie wektora przez liczbe zmiennoprzecinkowa.               |
@@ -75,14 +79,15 @@ Vector Vector::operator - (const Vector &v) {
  |      na parametr.                                                          |
  */
 
-Vector Vector::operator * (const double &tmp) {
+Vector Vector::operator*(const double &tmp)
+{
     Vector result;
-    for (int i = 0; i < SIZE; ++i) {
+    for (int i = 0; i < SIZE; ++i)
+    {
         result[i] = size[i] *= tmp;
     }
     return result;
 }
-
 
 /******************************************************************************
  |  Realizuje dzielenie dwoch wektorow.                                       |
@@ -94,16 +99,17 @@ Vector Vector::operator * (const double &tmp) {
  |      na parametr.                                                          |
  */
 
-Vector Vector::operator / (const double &tmp) {
+Vector Vector::operator/(const double &tmp)
+{
     Vector result;
 
-    for (int i = 0; i < SIZE; ++i) {
+    for (int i = 0; i < SIZE; ++i)
+    {
         result[i] = size[i] / tmp;
     }
 
     return result;
 }
-
 
 /******************************************************************************
  |  Funktor wektora.                                                          |
@@ -112,13 +118,14 @@ Vector Vector::operator / (const double &tmp) {
  |  Zwraca:                                                                   |
  |      Wartosc wektora w danym miejscu tablicy jako stala.                   |
  */
-const double &Vector::operator [] (int index) const {
-    if (index < 0 || index >= SIZE) {
+const double &Vector::operator[](int index) const
+{
+    if (index < 0 || index >= SIZE)
+    {
         std::cerr << "Error: Wektor jest poza zasiegiem!" << std::endl;
     }
     return size[index];
 }
-
 
 /******************************************************************************
  |  Funktor wektora.                                                          |
@@ -127,10 +134,10 @@ const double &Vector::operator [] (int index) const {
  |  Zwraca:                                                                   |
  |      Wartosc wektora w danym miejscu tablicy.                              |
  */
-double &Vector::operator[](int index) {
+double &Vector::operator[](int index)
+{
     return const_cast<double &>(const_cast<const Vector *>(this)->operator[](index));
 }
-
 
 /******************************************************************************
  |  Przeciazenie operatora <<                                                 |
@@ -138,13 +145,14 @@ double &Vector::operator[](int index) {
  |      out - strumien wejsciowy,                                             |
  |      tmp - wektor.                                                         |
  */
-std::ostream &operator << (std::ostream &out, Vector const &tmp) {
-    for (int i = 0; i < SIZE; ++i) {
+std::ostream &operator<<(std::ostream &out, Vector const &tmp)
+{
+    for (int i = 0; i < SIZE; ++i)
+    {
         out << "[ " << tmp[i] << " ]\n";
     }
     return out;
 }
-
 
 /******************************************************************************
  |  Przeciazenie operatora >>                                                 |
@@ -152,8 +160,10 @@ std::ostream &operator << (std::ostream &out, Vector const &tmp) {
  |      in - strumien wyjsciowy,                                              |
  |      tmp - wektor.                                                         |
  */
-std::istream &operator >> (std::istream &in, Vector &tmp) {
-    for (int i = 0; i < SIZE; ++i) {
+std::istream &operator>>(std::istream &in, Vector &tmp)
+{
+    for (int i = 0; i < SIZE; ++i)
+    {
         in >> tmp[i];
     }
     std::cout << std::endl;
@@ -165,19 +175,80 @@ std::istream &operator >> (std::istream &in, Vector &tmp) {
  | Argumenty:                                                                 |
  |      theta - kat obrotu ( w stopniach )                                    |
  | Zwraca:                                                                    |
- |      obrocony wektor
+ |      obrocony wektor                                                       |
  */
 
-Vector Vector::rotate(const double &theta){
+Vector Vector::rotate(const double &theta)
+{
     Vector rotated;
-    double theta_rad = theta * PI /180;
-    if (SIZE == 2){
+    double theta_rad = theta * PI / 180;
+    if (SIZE == 2)
+    {
         double tmp[][SIZE] = {{cos(theta_rad), -sin(theta_rad)}, {sin(theta_rad), cos(theta_rad)}};
         Matrix transformation(tmp);
         rotated = transformation * *this;
     }
-    else {
+    else
+    {
         std::cerr << "ERROR: Nie zdefiniowano macierzy obrotu dla przestrzeni innej niz dwuwymiarowa." << std::endl;
     }
     return rotated;
+}
+
+/******************************************************************************
+ | Zwraca kwadrat modulu wektora                                              |
+ | Argumenty:                                                                 |
+ |      Brak                                                                  |
+ | Zwraca:                                                                    |
+ |      kwadrat modulu wektora                                                |
+ */
+double Vector::modulus2() const
+{
+    int i;
+    double result;
+
+    for (i = 0; i < SIZE; i++)
+    {
+        result += pow(size[i], 2);
+    }
+    return result;
+}
+/******************************************************************************
+ | Zwraca dlugosc wektora                                                     |
+ | Argumenty:                                                                 |
+ |      Brak                                                                  |
+ | Zwraca:                                                                    |
+ |      dlugosc wektora                                                       |
+ */
+double Vector::get_len() const
+{
+    double len, mod2;
+    Vector tmp;
+    tmp = *this;
+    mod2 = tmp.modulus2();
+    len = pow(mod2, 1.0 / SIZE);
+
+    return len;
+}
+
+/******************************************************************************
+ | Zwraca kat nachylenia wektora do osi x                                     |
+ | Argumenty:                                                                 |
+ |      Brak                                                                  |
+ | Zwraca:                                                                    |
+ |      kat nachylenia w                                                       |
+ */
+double Vector::get_slope_angle() const
+{
+    double angle;
+    if (SIZE == 2)
+    {
+        angle = atan2(size[1] , size[2]);
+        angle *= 180/PI;
+    }
+    else {
+        std::cerr << "ERROR: Nie zdefiniowano kata nachylenia dla wektorow innych niz dwuwymiarowych."<<std::endl;
+        angle = 0; 
+    }
+    return angle;
 }

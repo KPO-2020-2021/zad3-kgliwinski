@@ -26,6 +26,12 @@ public:
 
     Vector rotate(const double &theta);
 
+    double modulus2() const;
+
+    double get_len() const;
+
+    double get_slope_angle() const;
+
     const double &operator [] (int index) const;
 
     double &operator [] (int index);
