@@ -40,12 +40,12 @@ Vector::Vector(double tmp[SIZE])
  |      Sume dwoch skladnikow przekazanych jako wskaznik                      |
  |      na parametr.                                                          |
  */
-Vector Vector::operator+(const Vector &v)
+Vector Vector::operator+(const Vector &v) const
 {
     Vector result;
     for (int i = 0; i < SIZE; ++i)
     {
-        result[i] = size[i] += v[i];
+        result[i] = size[i] + v[i];
     }
     return result;
 }
@@ -59,12 +59,12 @@ Vector Vector::operator+(const Vector &v)
  |      Roznice dwoch skladnikow przekazanych jako wskaznik                   |
  |      na parametr.                                                          |
  */
-Vector Vector::operator-(const Vector &v)
+Vector Vector::operator-(const Vector &v) const
 {
     Vector result;
     for (int i = 0; i < SIZE; ++i)
     {
-        result[i] = size[i] -= v[i];
+        result[i] = size[i] - v[i];
     }
     return result;
 }
@@ -79,12 +79,12 @@ Vector Vector::operator-(const Vector &v)
  |      na parametr.                                                          |
  */
 
-Vector Vector::operator*(const double &tmp)
+Vector Vector::operator*(const double &tmp) const
 {
     Vector result;
     for (int i = 0; i < SIZE; ++i)
     {
-        result[i] = size[i] *= tmp;
+        result[i] = size[i] * tmp;
     }
     return result;
 }
@@ -99,7 +99,7 @@ Vector Vector::operator*(const double &tmp)
  |      na parametr.                                                          |
  */
 
-Vector Vector::operator/(const double &tmp)
+Vector Vector::operator/(const double &tmp) const
 {
     Vector result;
 
@@ -178,7 +178,7 @@ std::istream &operator>>(std::istream &in, Vector &tmp)
  |      obrocony wektor                                                       |
  */
 
-Vector Vector::rotate(const double &theta)
+Vector Vector::rotate(const double &theta) const
 {
     Vector rotated;
     double theta_rad = theta * PI / 180;
@@ -243,12 +243,13 @@ double Vector::get_slope_angle() const
     double angle;
     if (SIZE == 2)
     {
-        angle = atan2(size[1] , size[2]);
-        angle *= 180/PI;
+        angle = atan2(size[1], size[2]);
+        angle *= 180 / PI;
     }
-    else {
-        std::cerr << "ERROR: Nie zdefiniowano kata nachylenia dla wektorow innych niz dwuwymiarowych."<<std::endl;
-        angle = 0; 
+    else
+    {
+        std::cerr << "ERROR: Nie zdefiniowano kata nachylenia dla wektorow innych niz dwuwymiarowych." << std::endl;
+        angle = 0;
     }
     return angle;
 }

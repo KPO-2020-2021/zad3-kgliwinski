@@ -16,15 +16,15 @@ public:
 
     Vector(double [SIZE]);
 
-    Vector operator + (const Vector &v);
+    Vector operator + (const Vector &v) const;
 
-    Vector operator - (const Vector &v);
+    Vector operator - (const Vector &v) const;
 
-    Vector operator * (const double &tmp);
+    Vector operator * (const double &tmp) const;
 
-    Vector operator / (const double &tmp);
+    Vector operator / (const double &tmp) const;
 
-    Vector rotate(const double &theta);
+    Vector rotate(const double &theta) const;
 
     double modulus2() const;
 

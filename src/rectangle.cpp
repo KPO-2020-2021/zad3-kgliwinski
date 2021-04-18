@@ -27,6 +27,12 @@ Rectangle::Rectangle(Vector const &aX, Vector const &bX, Vector const &cX, Vecto
     b = bX;
     c = cX;
     d = dX;
+
+    Rectangle a;
+    a = *this;
+    if (!a.check_len_opp()){
+        std::cerr << "ERROR: przeciwlegle boki nie sa rowne!" << std::endl;
+    }
 }
 /******************************************************************************
  |  Funkcja przesuniecia prostokata o wektor                                  |
@@ -35,7 +41,7 @@ Rectangle::Rectangle(Vector const &aX, Vector const &bX, Vector const &cX, Vecto
  |  Zwraca:                                                                   |
  |      Prostokat z przesunietymi wierzcholkami o zadany wektor               |
  */
-Rectangle Rectangle::translation(Vector const &tran)
+Rectangle Rectangle::translation(Vector const &tran) const
 {
     Rectangle translated;
     translated.a = a + tran;
@@ -86,7 +92,7 @@ std::ostream &operator<<(std::ostream &out, Rectangle const &Rec)
  | Zwraca:                                                                    |
  |      obrocony prostokat                                                    |
  */
-Rectangle Rectangle::rotate(const double &theta) {
+Rectangle Rectangle::rotate(const double &theta) const{
     Rectangle rotated;
     
     rotated.a = a.rotate(theta);
@@ -95,4 +101,28 @@ Rectangle Rectangle::rotate(const double &theta) {
     rotated.d = d.rotate(theta);
 
     return rotated;
+}
+
+bool Rectangle::check_len_opp() const{
+Vector AB, CD, BC, DA;
+AB = b-a;
+CD = d-c;
+BC = c-b;
+DA = a-d;
+std::cout << AB.get_len() << " " << CD.get_len() << " " << BC.get_len() << " " << DA.get_len() << std::endl;
+if ((AB.get_len() == CD.get_len()) && (BC.get_len() == DA.get_len()))
+    return 1;
+
+else return 0;
+}
+
+
+
+bool Rectangle::check_angle_opp() const{
+Vector AB, CD, BC, DA;
+AB = b-a;
+CD = d-c;
+BC = c-b;
+DA = a-d;
+    return 0;
 }

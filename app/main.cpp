@@ -123,7 +123,7 @@ int main()
        Vector tmpV1 = Vector();
        std::cout << "Vector - konstruktor bezparametryczny:\n"
                  << tmpV1 << std::endl;
-       double argumentsV[] = {1.0, 2.0};
+       double argumentsV[] = {0.0000000001, 0.0000000002};
        Vector tmpV2 = Vector(argumentsV);
        std::cout << "Vector - konstruktor parametryczny:\n"
                  << tmpV2 << std::endl;
