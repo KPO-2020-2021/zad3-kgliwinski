@@ -121,13 +121,16 @@ int main()
        // do zadania Rotacja 2D
        std::cout << "Vector:" << std::endl;
        Vector tmpV1 = Vector();
+       
        std::cout << "Vector - konstruktor bezparametryczny:\n"
                  << tmpV1 << std::endl;
        double argumentsV[] = {0.0000000001, 0.0000000002};
        Vector tmpV2 = Vector(argumentsV);
+       
        std::cout << "Vector - konstruktor parametryczny:\n"
                  << tmpV2 << std::endl;
 
+       
        std::cout << "Matrix:" << std::endl;
        Matrix tmpM1 = Matrix();
 
@@ -135,15 +138,21 @@ int main()
                  << tmpM1 << std::endl;
        double argumentsM[][SIZE] = {{1.0, 2.0}, {3.0, 4.0}};
        Matrix tmpM2 = Matrix(argumentsM);
+       
        std::cout << "Matrix - konstruktor parametryczny:\n"
                  << tmpM2 << std::endl;
 
        Rectangle tmpR1;
+       
        std::cout << "Rectangle - konstruktor bezparametryczny:\n"
                  << tmpR1 << std::endl;
-       double argsA[] = {1, 4}, argsB[] = {1, 2}, argsC[] = {3, 2}, argsD[] = {3, 4};
-       Vector a1(argsA), b1(argsB), c1(argsC), d1(argsD);
-       Rectangle tmpR2(a1, b1, c1, d1);
+       double args[4][2]= {{1, 4},{1, 2},{3, 2},{3, 4}};
+       Vector a1[4];
+       for (int i=0;i<4;i++){
+              a1[i]=Vector(args[i]);
+       }
+       Rectangle tmpR2(a1);
+       
        std::cout << "Rectangle - konstruktor parametryczny:\n"
                  << tmpR2 << std::endl;
 
@@ -151,6 +160,7 @@ int main()
        Vector tmpV3(tmpargs);
        double length;
        length = tmpV3.get_len();
+       
        std::cout << "Dlugosc wektora " << std::endl << tmpV3 << " wynosi " << length << std::endl;
 
        Vector tmpV3_rotated;
