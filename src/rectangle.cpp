@@ -33,12 +33,11 @@ Rectangle::Rectangle(Vector const (&tab)[4])
     }
 
     Rectangle a=*this;
-    if (!a.check_len_opp()){
-        std::cerr << "ERROR: przeciwlegle boki nie sa rowne!" << std::endl;
+    if (!a.check_rec()){
+        Rectangle a;    
+        *this = a;
     }
-    if (!a.check_angle_rec()){
-        std::cerr << "ERROR: przeciwlegle boki nie sa rownolegle!" << std::endl;
-    }
+
 }
 /******************************************************************************
  |  Funkcja przesuniecia prostokata o wektor                                  |
@@ -106,51 +105,81 @@ Rectangle Rectangle::rotate(const double &theta) const{
 
     return rotated;
 }
+
 /******************************************************************************
  | Sprawdza czy przeciwlegle boki prostokata sa rownej dlugosci               |
  | Argumenty:                                                                 |
  |      brak                                                                  |
  | Zwraca:                                                                    |
- |      Wartosc logiczna: 1 - sa rowne, 0 - nie sa rowne                      |
+ |      Wartosc logiczna: 1 - sa rowne, 0 - nie sa rowne oraz komunikat bledu |
  */
-bool Rectangle::check_len_opp() const{
-Vector AB, CD, BC, DA;
-int i=1;
-AB = top[i]-top[i-1]; i++;
-CD = top[i]-top[i-1]; i++;
-BC = top[i]-top[i-1]; i++;
-DA = top[0]-top[i-1]; i++;
+bool Rectangle::check_len_opp(Vector const (&vecs)[4]) const{
 
-if ((AB.get_len() == CD.get_len()) && (BC.get_len() == DA.get_len()))
-    return 1;
-
-else return 0;
+if (!(vecs[0].get_len() == vecs[2].get_len()) && (vecs[1].get_len() == vecs[3].get_len())){
+    std::cerr << "ERROR: przeciwlegle boki nie sa rowne!" << std::endl;
+    return 0;
 }
 
+return 1;
+}
 
 /******************************************************************************
  | Sprawdza czy wszystkie katy prostokata sa proste                           |
  | Argumenty:                                                                 |
  |      brak                                                                  |
  | Zwraca:                                                                    |
- |      Wartosc logiczna: 1 - sa , 0 - nie sa                                 |
+ |      Wartosc logiczna: 1 - sa , 0 - nie sa oraz komunikat bledu            |
  */
-bool Rectangle::check_angle_rec() const{
-int i;
-Vector AB, CD, BC, DA;
-double angAB,angBC,angCD,angDA;
-i=1;
-AB = top[i]-top[i-1]; i++;
-CD = top[i]-top[i-1]; i++;
-BC = top[i]-top[i-1]; i++;
-DA = top[0]-top[i-1]; i++;
-
-angAB = AB.get_slope_angle(); angBC = BC.get_slope_angle(); angCD = CD.get_slope_angle(); angDA = DA.get_slope_angle();
-/*  zgodnie z definicja atan2 moze zwracac wartosci z przedzialu (-180,180), 
-    stad wektory o nachyleniu B oraz 180-B sa rownolegle */
-    std::cout<<angAB<<" "<<angBC<<" "<<angCD<<" "<<angDA<<std::endl;
-if (!((angAB == angCD) || (angAB == 180-angCD)) || !((angBC == angDA) || (angBC) == 180-angCD))
-    return 0;
-else
+bool Rectangle::check_angle_rec(Vector const (&vecs)[4]) const{
+    double A,B,C,D;
+    A = vecs[0].get_slope_angle() - vecs[3].get_slope_angle();
+    B = vecs[1].get_slope_angle() - vecs[0].get_slope_angle();
+    C = vecs[2].get_slope_angle() - vecs[1].get_slope_angle();
+    D = vecs[3].get_slope_angle() - vecs[2].get_slope_angle();
+    //std::cout << A <<" "<< B << " "<< C <<" "<< D <<   std::endl;
+    if (!(check_angle_straight(A) && check_angle_straight(B) 
+ && check_angle_straight(C) && check_angle_straight(D))){
+        std::cerr<<"Error: katy prostokata nie sa proste!"<<std::endl;
+             return 0;
+    }   
     return 1;
 }
+
+/******************************************************************************
+ | Sprawdza czy wpojedynczy kat jest prosty                                   |
+ | Argumenty:                                                                 |
+ |      brak                                                                  |
+ | Zwraca:                                                                    |
+ |      Wartosc logiczna: 1 - sa , 0 - nie sa                                 |
+ */
+bool Rectangle::check_angle_straight(double ang) const{
+    double a = abs(ang);
+    if (!(a == 90 || a == 270))
+        return 0;
+    return 1;
+}
+/******************************************************************************
+ | Sprawdza czy przeciwlegle boki prostokata sa oraz czy katy sa proste       |
+ | Argumenty:                                                                 |
+ |      brak                                                                  |
+ | Zwraca:                                                                    |
+ |      Wartosc logiczna: 1 - sa , 0 - nie sa                      |
+ */
+bool Rectangle::check_rec() const{
+Vector sides[4];
+//double angA,angB,angC,angD;
+int i=1;
+sides[0] = top[i]-top[i-1]; i++;
+sides[1] = top[i]-top[i-1]; i++;
+sides[2] = top[i]-top[i-1]; i++;
+sides[3] = top[0]-top[i-1]; i++;
+
+if (!check_len_opp(sides))
+    return 0;
+
+if(!check_angle_rec(sides))
+    return 0;
+return 1;
+}
+
+
