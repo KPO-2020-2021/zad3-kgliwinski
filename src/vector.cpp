@@ -243,7 +243,7 @@ double Vector::get_slope_angle() const
     double angle;
     if (SIZE == 2)
     {
-        angle = atan2(size[1], size[2]);
+        angle = atan2(size[0], size[1]);
         angle *= 180 / PI;
     }
     else
