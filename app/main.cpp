@@ -220,7 +220,7 @@ int main()
        
        std::cout << "Rectangle - konstruktor bezparametryczny:\n"
                  << tmpR1 << std::endl;
-       double args[4][2]= {{1000.0, 4000.0},{1000.0, 2000.0},{3000.0, 2000.0},{3000.0, 4000.0}};
+       double args[4][2]= {{100.0, 400.0},{100.0, 200.0},{300.0, 200.0},{300.0, 400.0}};
        Vector a1[4];
        for (int i=0;i<4;i++){
               a1[i]=Vector(args[i]);
@@ -284,6 +284,14 @@ int main()
 
        RectangleToStdout(std::cout, tmpR2);
        if (!RectangleToFile("../datasets/prostokat.dat", tmpR2))
+              return 1;
+       Lacze.Rysuj(); // <- Tutaj gnuplot rysuje, to co zapisaliśmy do pliku
+       std::cout << "Naciśnij ENTER, aby kontynuowac" << std::endl;
+       std::cin.ignore(100000, '\n');
+
+       Rectangle tmpR4 = tmpR2.rotate(90);
+       RectangleToStdout(std::cout, tmpR4);
+       if (!RectangleToFile("../datasets/prostokat.dat", tmpR4))
               return 1;
        Lacze.Rysuj(); // <- Tutaj gnuplot rysuje, to co zapisaliśmy do pliku
        std::cout << "Naciśnij ENTER, aby kontynuowac" << std::endl;
