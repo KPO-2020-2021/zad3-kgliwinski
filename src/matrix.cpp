@@ -11,9 +11,9 @@ Matrix::Matrix() {
     for (int i = 0; i < SIZE; ++i) {
         for (int j = 0; j < SIZE; j++) {
             if (i==j)
-            value[i][j] = 1;
+            value[i][j] = 1.0;
             else
-            value[i][j] = 0;
+            value[i][j] = 0.0;
         }
     }
 }
@@ -152,6 +152,7 @@ std::istream &operator>>(std::istream &in, Matrix &mat) {
  |      mat - macierz.                                                        |
  */
 std::ostream &operator<<(std::ostream &out, const Matrix &mat) {
+    out.precision(10);
     for (int i = 0; i < SIZE; ++i) {
         for (int j = 0; j < SIZE; j++) {
             out << "| " << mat(i, j) << " | "; //warto ustalic szerokosc wyswietlania dokladnosci liczb

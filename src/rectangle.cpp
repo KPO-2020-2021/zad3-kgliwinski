@@ -10,13 +10,13 @@ Rectangle::Rectangle()
 {
     double iter[SIZE];
     int i;
-    iter[0]=1;iter[1]=1;
+    iter[0]=1.0;iter[1]=1.0;
     for (i=2;i<SIZE;++i)
-        iter[i]=0;
+        iter[i]=0.0;
     top[0] = Vector(iter);
-    iter[1]=-1; top[1]=Vector(iter);
-    iter[0]=-1; top[2]=Vector(iter);
-    iter[1]=1; top[3]=Vector(iter);
+    iter[1]=-1.0; top[1]=Vector(iter);
+    iter[0]=-1.0; top[2]=Vector(iter);
+    iter[1]=1.0; top[3]=Vector(iter);
 }
 /******************************************************************************
  |  Konstruktor klasy Rectangle.                                              |
@@ -50,6 +50,7 @@ Rectangle::Rectangle(Vector const (&tab)[4])
 Rectangle::~Rectangle(){
     std::cout<<"Deleting rectangle"<<std::endl;
 }
+
 /******************************************************************************
  |  Funkcja przesuniecia prostokata o wektor                                  |
  |  Argumenty:                                                                |
@@ -89,6 +90,7 @@ void Rectangle::get_rect( Vector (&tab)[4]) const
  */
 std::ostream &operator<<(std::ostream &out, Rectangle const &Rec)
 {
+    out.precision(10);
     Vector vecs[4];
     Rec.get_rect( vecs);
     out << "Wierzcholek A: " << std::endl << vecs[0] << std::endl;

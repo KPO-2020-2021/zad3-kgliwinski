@@ -11,7 +11,7 @@ Vector::Vector()
 {
     for (int i = 0; i < SIZE; ++i)
     {
-        size[i] = 0;
+        size[i] = 0.0;
     }
 }
 
@@ -158,6 +158,7 @@ double &Vector::operator[](int index)
  */
 std::ostream &operator<<(std::ostream &out, Vector const &tmp)
 {
+    out.precision(10);
     for (int i = 0; i < SIZE; ++i)
     {
         out << "[ " << tmp[i] << " ]\n";

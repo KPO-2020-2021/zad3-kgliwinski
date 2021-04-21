@@ -146,7 +146,7 @@ int main()
        
        std::cout << "Rectangle - konstruktor bezparametryczny:\n"
                  << tmpR1 << std::endl;
-       double args[4][2]= {{1, 4},{1, 2},{3, 2},{3, 4}};
+       double args[4][2]= {{1.0, 4.0},{1.0, 2.0},{3.0, 2.0},{3.0, 4.0}};
        Vector a1[4];
        for (int i=0;i<4;i++){
               a1[i]=Vector(args[i]);
