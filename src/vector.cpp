@@ -31,6 +31,17 @@ Vector::Vector(double tmp[SIZE])
     }
 }
 
+
+/******************************************************************************
+ |  Destruktor klasy Vector.                                                  |
+ |  Argumenty:                                                                |
+ |      Brak argumentow.                                                      |
+ |  Zwraca:                                                                   |
+ |      Usuwa wektor                                                          |
+ */
+Vector::~Vector(){
+    std::cout<<"Deleting vector"<<std::endl;
+}
 /******************************************************************************
  |  Realizuje dodawanie dwoch wektorow.                                       |
  |  Argumenty:                                                                |

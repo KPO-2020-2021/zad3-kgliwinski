@@ -12,6 +12,8 @@ Rectangle();
 
 Rectangle(Vector const (&tab)[4]);
 
+~Rectangle();
+
 Rectangle translation(Vector const &tran) const;
 
 Rectangle rotate(const double &theta) const;

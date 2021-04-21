@@ -16,6 +16,8 @@ public:
 
     Vector(double [SIZE]);
 
+    ~Vector();
+
     Vector operator + (const Vector &v) const;
 
     Vector operator - (const Vector &v) const;

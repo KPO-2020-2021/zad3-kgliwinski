@@ -39,6 +39,17 @@ Rectangle::Rectangle(Vector const (&tab)[4])
     }
 
 }
+
+/******************************************************************************
+ |  Destruktor klasy Rectangle.                                               |
+ |  Argumenty:                                                                |
+ |      Brak argumentow.                                                      |
+ |  Zwraca:                                                                   |
+ |      Usuwa prostokat z pamieci                                             |
+ */
+Rectangle::~Rectangle(){
+    std::cout<<"Deleting rectangle"<<std::endl;
+}
 /******************************************************************************
  |  Funkcja przesuniecia prostokata o wektor                                  |
  |  Argumenty:                                                                |

@@ -15,6 +15,8 @@ public:
 
     Matrix();                               // Konstruktor klasy
 
+    ~Matrix();                              // Destruktor klasy
+
     Vector operator * (Vector tmp);           // Operator mnożenia przez wektor
 
     Matrix operator + (Matrix tmp);

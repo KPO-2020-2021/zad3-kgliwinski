@@ -20,9 +20,9 @@ Matrix::Matrix() {
 
 
 /******************************************************************************
- |  Konstruktor parametryczny klasy Matrix.                                              |
+ |  Konstruktor parametryczny klasy Matrix.                                   |
  |  Argumenty:                                                                |
- |      tmp - dwuwymiarowa tablica z elementami typu double.                               |
+ |      tmp - dwuwymiarowa tablica z elementami typu double.                  |
  |  Zwraca:                                                                   |
  |      Macierz wypelniona wartosciami podanymi w argumencie.                 |
  */
@@ -33,7 +33,16 @@ Matrix::Matrix(double tmp[SIZE][SIZE]) {
         }
     }
 }
-
+/******************************************************************************
+ |  Destruktor klasy Matrix.                                                  |
+ |  Argumenty:                                                                |
+ |      Brak argumentow.                                                      |
+ |  Zwraca:                                                                   |
+ |      Usuwa klase                                                           |
+ */
+Matrix::~Matrix(){
+    std::cout<<"Deleting matrix"<<std::endl;
+}
 
 /******************************************************************************
  |  Realizuje mnozenie macierzy przez wektor.                                 |
