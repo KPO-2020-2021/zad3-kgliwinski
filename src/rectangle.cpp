@@ -48,7 +48,7 @@ Rectangle::Rectangle(Vector const (&tab)[4])
  |      Usuwa prostokat z pamieci                                             |
  */
 Rectangle::~Rectangle(){
-    std::cout<<"Deleting rectangle"<<std::endl;
+    //std::cout<<"Deleting rectangle"<<std::endl;
 }
 
 /******************************************************************************

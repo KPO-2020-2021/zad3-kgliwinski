@@ -210,8 +210,8 @@ namespace PzG {
          exit(1);
        }
        char Tab[3];
-       read(STDIN,Tab,1);
-       write(STDOUT,"\n",1); 
+       if(!read(STDIN,Tab,1)) return 0;
+       if(!write(STDOUT,"\n",1)) return 0; 
        const char *Comm;
 
        execlp(Comm = "gnuplot","gnuplot",NULL);

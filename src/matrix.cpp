@@ -41,7 +41,7 @@ Matrix::Matrix(double tmp[SIZE][SIZE]) {
  |      Usuwa klase                                                           |
  */
 Matrix::~Matrix(){
-    std::cout<<"Deleting matrix"<<std::endl;
+    //std::cout<<"Deleting matrix"<<std::endl;
 }
 
 /******************************************************************************

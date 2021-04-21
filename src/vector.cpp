@@ -40,7 +40,7 @@ Vector::Vector(double tmp[SIZE])
  |      Usuwa wektor                                                          |
  */
 Vector::~Vector(){
-    std::cout<<"Deleting vector"<<std::endl;
+    //std::cout<<"Deleting vector"<<std::endl;
 }
 /******************************************************************************
  |  Realizuje dodawanie dwoch wektorow.                                       |
@@ -217,7 +217,7 @@ Vector Vector::rotate(const double &theta) const
 double Vector::modulus2() const
 {
     int i;
-    double result;
+    double result=0;
 
     for (i = 0; i < SIZE; i++)
     {

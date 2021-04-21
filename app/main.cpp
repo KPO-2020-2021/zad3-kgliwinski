@@ -75,6 +75,49 @@ void PrzykladZapisuWspolrzednychDoStrumienia(std::ostream &StrmWy,
        // aby gnuplot narysowal zamkniętą linię.
 }
 
+
+/*!
+ * Przyklad zapisu wspolrzednych zbioru punktow do strumienia wyjściowego.
+ * Dane sa odpowiednio sformatowane, tzn. przyjęto notację stałoprzecinkową
+ * z dokładnością do 10 miejsca po przecinku. Szerokość wyświetlanego pola 
+ * to 16 miejsc, sposób wyrównywania - do prawej strony.
+ * \param[in] StrmWy - strumien wyjsciowy, do ktorego maja zostac zapisane
+ *                     kolejne wspolrzedne.
+ * \param[in] rec - prostokat wczytywany do pliku z programu
+ * \retval true - gdy operacja zapisu powiodła się,
+ * \retval false - w przypadku przeciwnym.
+ */
+void RectangleToStdout(std::ostream &StrmWy,
+                                             Rectangle rec)
+{
+       //---------------------------------------------------------------
+       // To tylko przyklad !!!
+       // W programie nalezy uzywać pojęcia wektora, a nie oddzielnych
+       // zmiennych do reprezentowania wspolrzednych!
+       //
+       Vector tmp[4];
+       rec.get_rect(tmp);
+       double x1, y1, x2, y2, x3, y3, x4, y4;
+
+       x1 = tmp[0][0]; y1 = tmp[0][1];
+       x2 = tmp[1][0]; y2 = tmp[1][1];
+       x3 = tmp[2][0]; y3 = tmp[2][1];
+       x4 = tmp[3][0]; y4 = tmp[3][1];
+       
+
+       StrmWy << std::setw(16) << std::fixed << std::setprecision(10) << x1 
+              << std::setw(16) << std::fixed << std::setprecision(10) << y1  << std::endl;
+       StrmWy << std::setw(16) << std::fixed << std::setprecision(10) << x2 
+              << std::setw(16) << std::fixed << std::setprecision(10) << y2  << std::endl;
+       StrmWy << std::setw(16) << std::fixed << std::setprecision(10) << x3 
+              << std::setw(16) << std::fixed << std::setprecision(10) << y3  << std::endl;
+       StrmWy << std::setw(16) << std::fixed << std::setprecision(10) << x4 
+              << std::setw(16) << std::fixed << std::setprecision(10) << y4  << std::endl;
+       StrmWy << std::setw(16) << std::fixed << std::setprecision(10) << x1 
+              << std::setw(16) << std::fixed << std::setprecision(10) << y1 << std::endl;
+       // Jeszcze raz zapisujemy pierwszy punkt,
+       // aby gnuplot narysowal zamkniętą linię.
+}
 /*!
  * Przyklad zapisu wspolrzednych zbioru punktow do pliku, z ktorego
  * dane odczyta program gnuplot i narysuje je w swoim oknie graficznym.
@@ -106,6 +149,37 @@ bool PrzykladZapisuWspolrzednychDoPliku(const char *sNazwaPliku,
        return !StrmPlikowy.fail();
 }
 
+
+/*!
+ * Przyklad zapisu wspolrzednych zbioru punktow do pliku, z ktorego
+ * dane odczyta program gnuplot i narysuje je w swoim oknie graficznym.
+ * \param[in] sNazwaPliku - nazwa pliku, do którego zostana zapisane
+ *                          wspolrzędne punktów.
+ * \param[in] Przesuniecie - ten parameter jest tylko po to, aby pokazać
+ *                          mozliwosc zmiany wspolrzednych i prostokata
+ *                          i zmiane jego polozenia na okienku graficznym
+ *                         rysownym przez gnuplota.
+ * \retval true - gdy operacja zapisu powiodła się,
+ * \retval false - w przypadku przeciwnym.
+ */
+bool RectangleToFile(const char *sNazwaPliku,
+                                        Rectangle rec)
+{
+       std::ofstream StrmPlikowy;
+
+       StrmPlikowy.open(sNazwaPliku);
+       if (!StrmPlikowy.is_open())
+       {
+              std::cerr << ":(  Operacja otwarcia do zapisu \"" << sNazwaPliku << "\"" << std::endl
+                        << ":(  nie powiodla sie." << std::endl;
+              return false;
+       }
+
+       RectangleToStdout(StrmPlikowy, rec);
+
+       StrmPlikowy.close();
+       return !StrmPlikowy.fail();
+}
 int main()
 {
        std::cout << "Project Rotation 2D based on C++ Boiler Plate v"
@@ -206,6 +280,15 @@ int main()
        Lacze.Rysuj(); // <- Tutaj gnuplot rysuje, to co zapisaliśmy do pliku
        std::cout << "Naciśnij ENTER, aby kontynuowac" << std::endl;
        std::cin.ignore(100000, '\n');
+
+
+       RectangleToStdout(std::cout, tmpR2);
+       if (!RectangleToFile("prostokat.dat", tmpR2))
+              return 1;
+       Lacze.Rysuj(); // <- Tutaj gnuplot rysuje, to co zapisaliśmy do pliku
+       std::cout << "Naciśnij ENTER, aby kontynuowac" << std::endl;
+       std::cin.ignore(100000, '\n');
+
 
        // Z bazy projektu-wydmuszki Boiler Plate C++:
        // Bring in the dummy class from the example source,
