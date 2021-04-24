@@ -198,7 +198,7 @@ int main()
        
        std::cout << "Vector - konstruktor bezparametryczny:\n"
                  << tmpV1 << std::endl;
-       double argumentsV[] = {0.0000000001, 0.0000000002};
+       double argumentsV[] = {0.000000001, 0.000000002};
        Vector tmpV2 = Vector(argumentsV);
        
        std::cout << "Vector - konstruktor parametryczny:\n"
@@ -220,7 +220,7 @@ int main()
        
        std::cout << "Rectangle - konstruktor bezparametryczny:\n"
                  << tmpR1 << std::endl;
-       double args[4][2]= {{100.0, 400.0},{100.0, 200.0},{300.0, 200.0},{300.0, 400.0}};
+       double args[4][2]= {{100.0, 400.0},{100.0, 300.0},{300.0, 300.0},{300.0, 400.0}};
        Vector a1[4];
        for (int i=0;i<4;i++){
               a1[i]=Vector(args[i]);

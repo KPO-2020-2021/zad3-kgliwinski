@@ -161,7 +161,9 @@ std::ostream &operator<<(std::ostream &out, Vector const &tmp)
     out.precision(10);
     for (int i = 0; i < SIZE; ++i)
     {
-        out << "[ " << tmp[i] << " ]\n";
+        out << "[ " ;
+        out << std::setw(10) << std::fixed << std::setprecision(10) << tmp[i];
+        out << " ]\n";
     }
     return out;
 }
@@ -260,8 +262,10 @@ double Vector::get_slope_angle() const
     }
     else
     {
-        std::cerr << "ERROR: Nie zdefiniowano kata nachylenia dla wektorow innych niz dwuwymiarowych." << std::endl;
-        angle = 0;
+    std::cerr << 
+    "ERROR: Nie zdefiniowano kata nachylenia dla wektorow innych niz dwuwymiarowych."
+    << std::endl;
+    angle = 0;
     }
     return angle;
 }

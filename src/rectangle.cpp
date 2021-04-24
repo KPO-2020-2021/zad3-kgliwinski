@@ -127,12 +127,29 @@ Rectangle Rectangle::rotate(const double &theta) const{
  |      Wartosc logiczna: 1 - sa rowne, 0 - nie sa rowne oraz komunikat bledu |
  */
 bool Rectangle::check_len_opp(Vector const (&vecs)[4]) const{
-
-if (!(vecs[0].get_len() == vecs[2].get_len()) && (vecs[1].get_len() == vecs[3].get_len())){
+double len[4];
+int i,j;
+for (i=0;i<4;++i){
+    len[i]=vecs[i].get_len();
+}
+if (!(len[0] == len[2]) && (len[1] == len[3])){
     std::cerr << "ERROR: przeciwlegle boki nie sa rowne!" << std::endl;
     return 0;
 }
-
+j=0;
+if(len[0]!=len[1]){
+if(!(len[0]>len[1]))    j++;
+std::cout << "Dluzsze przeciwlegle boki sa sobie rowne" << std::endl
+          << "Dlugosc pierwszego boku: " << len[j] << std::endl
+          << "Dlugosc drugiego boku: " << len[j+2] << std::endl << std::endl;
+if(!(len[0]>len[1]))    j--;
+std::cout << "Krotsze przeciwlegle boki sa sobie rowne" << std::endl
+          << "Dlugosc pierwszego boku: " << len[j] << std::endl
+          << "Dlugosc drugiego boku: " << len[j+2] << std::endl << std::endl;
+}
+else std::cout << "Dany prostokat ma wszystkie boki rowne. Dlugosci bokow to:" 
+  << std::endl << len[0] << std::endl << len[1] <<std::endl << len[2]
+  << std::endl << len[3] << std::endl << std::endl;
 return 1;
 }
 
@@ -155,6 +172,7 @@ bool Rectangle::check_angle_rec(Vector const (&vecs)[4]) const{
         std::cerr<<"Error: katy prostokata nie sa proste!"<<std::endl;
              return 0;
     }   
+    std::cout << "Wszystkie katy prostokata sa proste" << std::endl;
     return 1;
 }
 

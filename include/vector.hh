@@ -4,6 +4,7 @@
 
 #include <iostream>
 #include <cmath>
+#include <iomanip>
 class Vector {
 
 private:
