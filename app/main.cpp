@@ -41,10 +41,10 @@ int main()
                  << PROJECT_VERSION_PATCH /* naprawianie bugów */
                  << "."
                  << PROJECT_VERSION_TWEAK /* zmiany estetyczne itd. */
-                 << std::endl;
+                 << std::endl <<std::endl;
        // std::system("cat ../LICENSE");
        // do zadania Rotacja 2D
-       std::cout << "Vector:" << std::endl;
+       /* std::cout << "Vector:" << std::endl;
        Vector tmpV1 = Vector();
        
        std::cout << "Vector - konstruktor bezparametryczny:\n"
@@ -93,45 +93,17 @@ int main()
        tmpV3_rotated = tmpV3.rotate(z);
 
        std::cout << "Obrocony wektor o " << z << " stopni" << std::endl << tmpV3 << " to " << std::endl << tmpV3_rotated;
+       */
+       //Rectangle tmpRn = tmpR2.rotation_n_times();
 
-       Rectangle tmpRn = tmpR2.rotation_n_times();
-       PzG::LaczeDoGNUPlota Lacze; // Ta zmienna jest potrzebna do wizualizacji
-                                   // rysunku prostokata
+       menu m;
 
-       //-------------------------------------------------------
-       //  Wspolrzedne wierzcholkow beda zapisywane w pliku "prostokat.dat"
-       //  Ponizsze metody powoduja, ze dane z pliku beda wizualizowane
-       //  na dwa sposoby:
-       //   1. Rysowane jako linia ciagl o grubosci 2 piksele
-       //
-       Lacze.DodajNazwePliku("../datasets/prostokat.dat", PzG::RR_Ciagly, 2);
-       //
-       //   2. Rysowane jako zbior punktow reprezentowanych przez kwadraty,
-       //      których połowa długości boku wynosi 2.
-       //
-       Lacze.DodajNazwePliku("../datasets/prostokat.dat", PzG::RR_Punktowy, 2);
-       //
-       //  Ustawienie trybu rysowania 2D, tzn. rysowany zbiór punktów
-       //  znajduje się na wspólnej płaszczyźnie. Z tego powodu powoduj
-       //  jako wspolrzedne punktow podajemy tylko x,y.
-       //
-       Lacze.ZmienTrybRys(PzG::TR_2D);
-
-       std::cin.ignore(100000, '\n');
-       tmpR2.RectangleToStdout(std::cout);
-       if (!tmpR2.RectangleToFile("../datasets/prostokat.dat"))
-              return 1;
-       Lacze.Rysuj(); // <- Tutaj gnuplot rysuje, to co zapisaliśmy do pliku
-       std::cout << "Naciśnij ENTER, aby kontynuowac" << std::endl;
-       std::cin.ignore(100000, '\n');
-
-       Rectangle tmpR4 = tmpR2.rotate(90);
-       tmpR4.RectangleToStdout(std::cout);
-       if (!tmpR4.RectangleToFile("../datasets/prostokat.dat"))
-              return 1;
-       Lacze.Rysuj(); // <- Tutaj gnuplot rysuje, to co zapisaliśmy do pliku
-       std::cout << "Naciśnij ENTER, aby kontynuowac" << std::endl;
-       std::cin.ignore(100000, '\n');
+       double args[4][2]= {{100.0, 400.0},{100.0, 300.0},{300.0, 300.0},{300.0, 400.0}};
+       Vector a1[4];
+       for (int i=0;i<4;i++){
+              a1[i]=Vector(args[i]);
+       }
+       m.init_menu(a1);
 
 
        // Z bazy projektu-wydmuszki Boiler Plate C++:

@@ -17,8 +17,7 @@ class menu{
 
     void show_menu();
 
-    void switch_menu(char oper);
+    void switch_menu(const char &oper,Rectangle &rec);
 
-    
 };
 

@@ -51,6 +51,7 @@ Rectangle::~Rectangle(){
     //std::cout<<"Deleting rectangle"<<std::endl;
 }
 
+
 /******************************************************************************
  |  Funkcja przesuniecia prostokata o wektor                                  |
  |  Argumenty:                                                                |
@@ -62,6 +63,29 @@ Rectangle Rectangle::translation(Vector const &tran) const
 {
     Rectangle translated;
     int i;
+    for (i=0;i<4;++i){
+        translated.top[i] = top[i] + tran;
+    }
+
+    return translated;
+}
+
+/******************************************************************************
+ |  Funkcja przesuniecia prostokata o wektor                                  |
+ |  Argumenty:                                                                |
+ |      brak                                                                  |
+ |  Zwraca:                                                                   |
+ |      Prostokat z przesunietymi wierzcholkami o zadany wektor               |
+ */
+Rectangle Rectangle::translation() const
+{
+    Rectangle translated;
+    Vector tran;
+    int i;
+    std::cin.ignore(100000, '\n');
+    std::cout<<"Wprowadz wspolrzedne wektora translacji w postaci dwoch liczb\n" 
+             <<"tzn. wspolrzednej x oraz wspolrzednej y.";
+    std::cin>>tran;
     for (i=0;i<4;++i){
         translated.top[i] = top[i] + tran;
     }
@@ -104,6 +128,27 @@ std::ostream &operator<<(std::ostream &out, Rectangle const &Rec)
 /******************************************************************************
  | Obrot prostokata o kat theta wokol srodka ukladu wspolrzednych             |
  | Argumenty:                                                                 |
+ |      brak                                                                  |
+ | Zwraca:                                                                    |
+ |      obrocony prostokat                                                    |
+ */
+Rectangle Rectangle::rotate() const{
+    double theta;
+    Rectangle rotated;
+    std::cin.ignore(100000, '\n');
+    std::cout<<"Podaj kat obrotu w stopniach: " << std::endl;
+    std::cin>> theta;
+    rotated.top[0] = top[0].rotate(theta);
+    rotated.top[1] = top[1].rotate(theta);
+    rotated.top[2] = top[2].rotate(theta);
+    rotated.top[3] = top[3].rotate(theta);
+
+    return rotated;
+}
+
+/******************************************************************************
+ | Obrot prostokata o kat theta wokol srodka ukladu wspolrzednych             |
+ | Argumenty:                                                                 |
  |      theta - kat obrotu                                                    |
  | Zwraca:                                                                    |
  |      obrocony prostokat                                                    |
@@ -118,7 +163,6 @@ Rectangle Rectangle::rotate(const double &theta) const{
 
     return rotated;
 }
-
 /******************************************************************************
  | Sprawdza czy przeciwlegle boki prostokata sa rownej dlugosci               |
  | Argumenty:                                                                 |
@@ -268,3 +312,32 @@ bool Rectangle::RectangleToFile(const char *sNazwaPliku)
        return !StrmPlikowy.fail();
 }
 
+void Rectangle::PrintRectangle(){
+    PzG::LaczeDoGNUPlota Lacze; // Ta zmienna jest potrzebna do wizualizacji
+                                   // rysunku prostokata
+
+       //-------------------------------------------------------
+       //  Wspolrzedne wierzcholkow beda zapisywane w pliku "prostokat.dat"
+       //  Ponizsze metody powoduja, ze dane z pliku beda wizualizowane
+       //  na dwa sposoby:
+       //   1. Rysowane jako linia ciagl o grubosci 2 piksele
+       //
+       Lacze.DodajNazwePliku("../datasets/prostokat.dat", PzG::RR_Ciagly, 2);
+       //
+       //   2. Rysowane jako zbior punktow reprezentowanych przez kwadraty,
+       //      których połowa długości boku wynosi 2.
+       //
+       Lacze.DodajNazwePliku("../datasets/prostokat.dat", PzG::RR_Punktowy, 2);
+       //
+       //  Ustawienie trybu rysowania 2D, tzn. rysowany zbiór punktów
+       //  znajduje się na wspólnej płaszczyźnie. Z tego powodu powoduj
+       //  jako wspolrzedne punktow podajemy tylko x,y.
+       //
+       Lacze.ZmienTrybRys(PzG::TR_2D);
+           this->RectangleToStdout(std::cout);
+       if (!this->RectangleToFile("../datasets/prostokat.dat"))
+              std::cerr << "ERROR" << std::endl;
+       Lacze.Rysuj(); // <- Tutaj gnuplot rysuje, to co zapisaliśmy do pliku
+       std::cout << "Naciśnij ENTER, aby kontynuowac" << std::endl;
+       std::cin.ignore(100000, '\n');
+}
