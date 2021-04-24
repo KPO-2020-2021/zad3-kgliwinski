@@ -11,7 +11,9 @@
  */
 
 
-
+/*! \class Menu
+ *  \brief Tworzy i obsluguje menu programu
+ */
 class menu{
 
     private:
