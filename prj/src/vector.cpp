@@ -131,7 +131,7 @@ Vector Vector::operator/(const double &tmp) const
  */
 const double &Vector::operator[](int index) const
 {
-    if (index < 0 *| index >= SIZE)
+    if (index < 0 || index >= SIZE)
     {
         std::cerr << "Error: Wektor jest poza zasiegiem!" << std::endl;
     }
