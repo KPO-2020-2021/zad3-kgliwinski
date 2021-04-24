@@ -12,7 +12,7 @@ menu::menu(){
 /******************************************************************************
  | Inicjuje menu                                                              |
  | Argumenty:                                                                 |
- |      \param[in] tab - tablica 4 wektorow                                                    |
+ |      \param[in] tab - tablica 4 wektorow                                   |
  | Zwraca:                                                                    |
  |      brak                                                                  |
  */
