@@ -256,7 +256,13 @@ if(!check_angle_rec(sides))
     return 0;
 return 1;
 }
-
+/******************************************************************************
+ | Sprawdza czy przeciwlegle boki prostokata sa oraz czy katy sa proste       |
+ | Argumenty:                                                                 |
+ |      brak                                                                  |
+ | Zwraca:                                                                    |
+ |      Wartosc logiczna: 1 - sa , 0 - nie sa                      |
+ */
 Rectangle Rectangle::rotation_n_times(){
     Rectangle tmp;
     double ang, ang_rep;
@@ -272,7 +278,13 @@ Rectangle Rectangle::rotation_n_times(){
     return tmp;
 }
 
-
+/******************************************************************************
+ | Kieruje wspolrzedne prostokata na strumien wyjsciowy                       |
+ | Argumenty:                                                                 |
+ |      brak                                                                  |
+ | Zwraca:                                                                    |
+ |      brak                                                                  |
+ */
 void Rectangle::RectangleToStdout(std::ostream &out)
 {
     int i;
@@ -311,28 +323,20 @@ bool Rectangle::RectangleToFile(const char *sNazwaPliku)
        StrmPlikowy.close();
        return !StrmPlikowy.fail();
 }
-
+/******************************************************************************
+ | Wyswietla prostokat w GNUplocie                                            |
+ | Argumenty:                                                                 |
+ |      brak                                                                  |
+ | Zwraca:                                                                    |
+ |      brak                                                                  |
+ */
 void Rectangle::PrintRectangle(){
     PzG::LaczeDoGNUPlota Lacze; // Ta zmienna jest potrzebna do wizualizacji
-                                   // rysunku prostokata
 
-       //-------------------------------------------------------
-       //  Wspolrzedne wierzcholkow beda zapisywane w pliku "prostokat.dat"
-       //  Ponizsze metody powoduja, ze dane z pliku beda wizualizowane
-       //  na dwa sposoby:
-       //   1. Rysowane jako linia ciagl o grubosci 2 piksele
-       //
        Lacze.DodajNazwePliku("../datasets/prostokat.dat", PzG::RR_Ciagly, 2);
-       //
-       //   2. Rysowane jako zbior punktow reprezentowanych przez kwadraty,
-       //      których połowa długości boku wynosi 2.
-       //
+
        Lacze.DodajNazwePliku("../datasets/prostokat.dat", PzG::RR_Punktowy, 2);
-       //
-       //  Ustawienie trybu rysowania 2D, tzn. rysowany zbiór punktów
-       //  znajduje się na wspólnej płaszczyźnie. Z tego powodu powoduj
-       //  jako wspolrzedne punktow podajemy tylko x,y.
-       //
+
        Lacze.ZmienTrybRys(PzG::TR_2D);
            this->RectangleToStdout(std::cout);
        if (!this->RectangleToFile("../datasets/prostokat.dat"))
