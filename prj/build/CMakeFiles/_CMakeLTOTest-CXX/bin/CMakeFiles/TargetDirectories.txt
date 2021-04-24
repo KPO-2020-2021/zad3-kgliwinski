@@ -1,4 +1,0 @@
-/home/krzysztof/PO/zad3-kgliwinski/prj/build/CMakeFiles/_CMakeLTOTest-CXX/bin/CMakeFiles/rebuild_cache.dir
-/home/krzysztof/PO/zad3-kgliwinski/prj/build/CMakeFiles/_CMakeLTOTest-CXX/bin/CMakeFiles/edit_cache.dir
-/home/krzysztof/PO/zad3-kgliwinski/prj/build/CMakeFiles/_CMakeLTOTest-CXX/bin/CMakeFiles/boo.dir
-/home/krzysztof/PO/zad3-kgliwinski/prj/build/CMakeFiles/_CMakeLTOTest-CXX/bin/CMakeFiles/foo.dir

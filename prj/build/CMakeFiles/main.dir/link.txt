@@ -1,1 +1,0 @@
-/usr/bin/c++  -O3 -DNDEBUG -flto -fno-fat-lto-objects   CMakeFiles/main.dir/app/main.cpp.o CMakeFiles/engine.dir/src/example.cpp.o CMakeFiles/engine.dir/src/lacze_do_gnuplota.cpp.o CMakeFiles/engine.dir/src/vector.cpp.o CMakeFiles/engine.dir/src/matrix.cpp.o CMakeFiles/engine.dir/src/rectangle.cpp.o CMakeFiles/engine.dir/src/menu.cpp.o  -o main 
