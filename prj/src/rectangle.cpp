@@ -1,10 +1,10 @@
 #include "rectangle.hh"
-/******************************************************************************
- |  Konstruktor klasy Rectangle.                                              |
- |  Argumenty:                                                                |
- |      Brak argumentow.                                                      |
- |  Zwraca:                                                                   |
- |      Cztery wierzcholki prostokata                                         |
+/*!
+ *  Konstruktor klasy Rectangle.                                              
+ *  Argumenty:                                                                
+ *      Brak argumentow.                                                      
+ *  Zwraca:                                                                   
+ *     \post Zwraca cztery wierzcholki prostokata                                 
  */
 Rectangle::Rectangle()
 {
@@ -18,12 +18,13 @@ Rectangle::Rectangle()
     iter[0]=-1.0; top[2]=Vector(iter);
     iter[1]=1.0; top[3]=Vector(iter);
 }
-/******************************************************************************
- |  Konstruktor klasy Rectangle.                                              |
- |  Argumenty:                                                                |
- |      aX, bX, cX, dX - cztery wektory reprezentujace polozenie wierzcholkow |
- |  Zwraca:                                                                   |
- |      Cztery wierzcholki prostokata opisane przez podane wektory            |
+/*!
+ *  Konstruktor klasy Rectangle.                                              
+ *  Argumenty:                                                                
+ *      \param[in] tab[4] - tlica wektorow reprezentujacych polozenie         
+ *                       wierzcholkow                                          
+ *  Zwraca:                                                                   
+ *      \param[out] tab - Cztery wierzcholki prostokata opisane przez podane wektory    
  */
 Rectangle::Rectangle(Vector const (&tab)[4])
 {
@@ -40,24 +41,24 @@ Rectangle::Rectangle(Vector const (&tab)[4])
 
 }
 
-/******************************************************************************
- |  Destruktor klasy Rectangle.                                               |
- |  Argumenty:                                                                |
- |      Brak argumentow.                                                      |
- |  Zwraca:                                                                   |
- |      Usuwa prostokat z pamieci                                             |
+/*!
+ *  Destruktor klasy Rectangle.                                               
+ *  Argumenty:                                                                
+ *      Brak argumentow.                                                      
+ *  Zwraca:                                                                   
+ *      \post Usuwa prostokat z pamieci                                             
  */
 Rectangle::~Rectangle(){
     //std::cout<<"Deleting rectangle"<<std::endl;
 }
 
 
-/******************************************************************************
- |  Funkcja przesuniecia prostokata o wektor                                  |
- |  Argumenty:                                                                |
- |      Wektor przesuniecia                                                   |
- |  Zwraca:                                                                   |
- |      Prostokat z przesunietymi wierzcholkami o zadany wektor               |
+/*!
+ *  Funkcja przesuniecia prostokata o wektor                                  
+ *  Argumenty:                                                                
+ *      \param[in] tran - wektor przesuniecia                                                   
+ *  Zwraca:                                                                   
+ *      \param[out] translated - Prostokat z przesunietymi wierzcholkami o zadany wektor               
  */
 Rectangle Rectangle::translation(Vector const &tran) const
 {
@@ -70,12 +71,12 @@ Rectangle Rectangle::translation(Vector const &tran) const
     return translated;
 }
 
-/******************************************************************************
- |  Funkcja przesuniecia prostokata o wektor                                  |
- |  Argumenty:                                                                |
- |      brak                                                                  |
- |  Zwraca:                                                                   |
- |      Prostokat z przesunietymi wierzcholkami o zadany wektor               |
+/*!
+ *  Funkcja przesuniecia prostokata o wektor                                  
+ *  Argumenty:                                                                
+ *      brak                                                                  
+ *  Zwraca:                                                                   
+ *      \param[out] translated - Prostokat z przesunietymi wierzcholkami o zadany wektor               
  */
 Rectangle Rectangle::translation() const
 {
@@ -92,12 +93,12 @@ Rectangle Rectangle::translation() const
 
     return translated;
 }
-/******************************************************************************
- |  Funkcja zwracajaca wierzcholki prostokata (przypisuje je zmiennym)        |
- |  Argumenty:                                                                |
- |      Referencje wektorow aX,bX,cX,dX                                       |
- |  Zwraca:                                                                   |
- |      Zmienia wartosci wektorow z wejscia                                   |
+/*!
+ *  \brief Funkcja zwracajaca wierzcholki prostokata (przypisuje je zmiennym)        
+ *  Argumenty:                                                                
+ *      \param [in] tab - tablica wektorow do ktorej zwracane sa wierzcholki prostokata                                       
+ *  Zwraca:                                                                   
+ *      \param[out] tab - Zmienia wartosci wektorow z wejscia                                   
  */
 void Rectangle::get_rect( Vector (&tab)[4]) const
 {
@@ -106,11 +107,11 @@ void Rectangle::get_rect( Vector (&tab)[4]) const
         tab[i]=top[i];
     }
 }
-/******************************************************************************
- |  Przeciazenie operatora <<                                                 |
- |  Argumenty:                                                                |
- |      out - strumien wejsciowy,                                             |
- |      Rec - prostokat.                                                      |
+/*!
+ *  Przeciazenie operatora <<                                                 
+ *  Argumenty:                                                                
+ *      \param[in] out - strumien wejsciowy,                                             
+ *      \param[in] Rec - prostokat.                                                      
  */
 std::ostream &operator<<(std::ostream &out, Rectangle const &Rec)
 {
@@ -125,12 +126,12 @@ std::ostream &operator<<(std::ostream &out, Rectangle const &Rec)
     return out;
 }
 
-/******************************************************************************
- | Obrot prostokata o kat theta wokol srodka ukladu wspolrzednych             |
- | Argumenty:                                                                 |
- |      brak                                                                  |
- | Zwraca:                                                                    |
- |      obrocony prostokat                                                    |
+/*!
+ * Obrot prostokata o kat theta wokol srodka ukladu wspolrzednych             
+ * Argumenty:                                                                 
+ *      brak                                                                  
+ * Zwraca:                                                                    
+ *      \param[out] rotated - obrocony prostokat                                                    
  */
 Rectangle Rectangle::rotate() const{
     double theta;
@@ -147,11 +148,11 @@ Rectangle Rectangle::rotate() const{
 }
 
 /******************************************************************************
- | Obrot prostokata o kat theta wokol srodka ukladu wspolrzednych             |
- | Argumenty:                                                                 |
- |      theta - kat obrotu                                                    |
- | Zwraca:                                                                    |
- |      obrocony prostokat                                                    |
+ * Obrot prostokata o kat theta wokol srodka ukladu wspolrzednych            
+ * Argumenty:                                                                 
+ *      \param[in] theta - kat obrotu                                         
+ * Zwraca:                                                                    
+ *      \param[out] rotated - obrocony prostokat                              
  */
 Rectangle Rectangle::rotate(const double &theta) const{
     Rectangle rotated;
@@ -164,11 +165,12 @@ Rectangle Rectangle::rotate(const double &theta) const{
     return rotated;
 }
 /******************************************************************************
- | Sprawdza czy przeciwlegle boki prostokata sa rownej dlugosci               |
- | Argumenty:                                                                 |
- |      brak                                                                  |
- | Zwraca:                                                                    |
- |      Wartosc logiczna: 1 - sa rowne, 0 - nie sa rowne oraz komunikat bledu |
+ * Sprawdza czy przeciwlegle boki prostokata sa rownej dlugosci               
+ * Argumenty:                                                                 
+ *      \param[in] vecs - tablica 4 wektorow reprezentujaca boki prostokata                                                                  
+ * Zwraca:                                                                    
+ *      \retval true - prostokat poprawny 
+ *      \retval false - prostokat niepoprawny
  */
 bool Rectangle::check_len_opp(Vector const (&vecs)[4]) const{
 double len[4];
@@ -198,11 +200,12 @@ return 1;
 }
 
 /******************************************************************************
- | Sprawdza czy wszystkie katy prostokata sa proste                           |
- | Argumenty:                                                                 |
- |      brak                                                                  |
- | Zwraca:                                                                    |
- |      Wartosc logiczna: 1 - sa , 0 - nie sa oraz komunikat bledu            |
+ * Sprawdza czy wszystkie katy prostokata sa proste                           
+ * Argumenty:                                                                 
+ *      brak                                                                  
+ * Zwraca:                                                                    
+ *      \retval true - prostokat poprawny 
+ *      \retval false - prostokat niepoprawny         
  */
 bool Rectangle::check_angle_rec(Vector const (&vecs)[4]) const{
     double A,B,C,D;
@@ -221,11 +224,12 @@ bool Rectangle::check_angle_rec(Vector const (&vecs)[4]) const{
 }
 
 /******************************************************************************
- | Sprawdza czy wpojedynczy kat jest prosty                                   |
- | Argumenty:                                                                 |
- |      brak                                                                  |
- | Zwraca:                                                                    |
- |      Wartosc logiczna: 1 - sa , 0 - nie sa                                 |
+ * Sprawdza czy wpojedynczy kat jest prosty                                   
+ * Argumenty:                                                                 
+ *      \param[in] ang - kat do sprawdzenia                                                                
+ * Zwraca:                                                                    
+ *      \retval true - prostokat poprawny 
+ *      \retval false - prostokat niepoprawny                                
  */
 bool Rectangle::check_angle_straight(double ang) const{
     double a = abs(ang);
@@ -234,11 +238,12 @@ bool Rectangle::check_angle_straight(double ang) const{
     return 1;
 }
 /******************************************************************************
- | Sprawdza czy przeciwlegle boki prostokata sa oraz czy katy sa proste       |
- | Argumenty:                                                                 |
- |      brak                                                                  |
- | Zwraca:                                                                    |
- |      Wartosc logiczna: 1 - sa , 0 - nie sa                      |
+ * Sprawdza czy przeciwlegle boki prostokata sa oraz czy katy sa proste       
+ * Argumenty:                                                                 
+ *      brak                                                                  
+ * Zwraca:                                                                    
+ *      \retval true - prostokat poprawny 
+ *      \retval false - prostokat niepoprawny
  */
 bool Rectangle::check_rec() const{
 Vector sides[4];
@@ -257,11 +262,12 @@ if(!check_angle_rec(sides))
 return 1;
 }
 /******************************************************************************
- | Sprawdza czy przeciwlegle boki prostokata sa oraz czy katy sa proste       |
- | Argumenty:                                                                 |
- |      brak                                                                  |
- | Zwraca:                                                                    |
- |      Wartosc logiczna: 1 - sa , 0 - nie sa                      |
+ * Sprawdza czy przeciwlegle boki prostokata sa oraz czy katy sa proste       
+ * Argumenty:                                                                 
+ *      brak                                                                  
+ * Zwraca:                                                                    
+ *      \retval true - prostokat poprawny 
+ *      \retval false - prostokat niepoprawny
  */
 Rectangle Rectangle::rotation_n_times(){
     Rectangle tmp;
@@ -279,11 +285,11 @@ Rectangle Rectangle::rotation_n_times(){
 }
 
 /******************************************************************************
- | Kieruje wspolrzedne prostokata na strumien wyjsciowy                       |
- | Argumenty:                                                                 |
- |      brak                                                                  |
- | Zwraca:                                                                    |
- |      brak                                                                  |
+ * Kieruje wspolrzedne prostokata na strumien wyjsciowy                       
+ * Argumenty:                                                                 
+ *      \param[in] out - strumien wyjsciowy                                                                  
+ * Zwraca:                                                                    
+ *      \param[out] out - strumien wyjsciowy z zapisanymi wspolrzednymi                                                                 
  */
 void Rectangle::RectangleToStdout(std::ostream &out)
 {
@@ -324,11 +330,11 @@ bool Rectangle::RectangleToFile(const char *sNazwaPliku)
        return !StrmPlikowy.fail();
 }
 /******************************************************************************
- | Wyswietla prostokat w GNUplocie                                            |
- | Argumenty:                                                                 |
- |      brak                                                                  |
- | Zwraca:                                                                    |
- |      brak                                                                  |
+ * Wyswietla prostokat w GNUplocie                                            *
+ * Argumenty:                                                                 *
+ *      brak                                                                  *
+ * Zwraca:                                                                    *
+ *      brak                                                                  *
  */
 void Rectangle::PrintRectangle(){
     PzG::LaczeDoGNUPlota Lacze; // Ta zmienna jest potrzebna do wizualizacji

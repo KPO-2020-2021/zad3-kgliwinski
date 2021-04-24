@@ -4,7 +4,18 @@
 #include "vector.hh"
 #include <iostream>
 #include <cstdlib>
+/*!
+ * \file  matrix.hh
+ *  
+ *  Plik zawiera definicję klasy reprezentujacej macierz
+ *  o wymiarach SIZExSIZE
+ */
 
+
+
+/*! \class Matrix
+ *  \brief Opisuje macierz nxn
+ */
 class Matrix {
 
 private:

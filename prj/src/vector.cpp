@@ -1,11 +1,11 @@
 #include "vector.hh"
 #include "matrix.hh"
 /******************************************************************************
- |  Konstruktor klasy Vector.                                                 |
- |  Argumenty:                                                                |
- |      Brak argumentow.                                                      |
- |  Zwraca:                                                                   |
- |      Tablice wypelniona wartoscia 0.                                       |
+ *  Konstruktor klasy Vector.                                                
+ *  Argumenty:                                                               
+ *      Brak argumentow.                                                     
+ *  Zwraca:                                                                  
+ *      \param[out] this -  Wektory wypelniony wartoscia 0.                                      
  */
 Vector::Vector()
 {
@@ -16,11 +16,11 @@ Vector::Vector()
 }
 
 /******************************************************************************
- |  Konstruktor klasy Vector.                                                 |
- |  Argumenty:                                                                |
- |      tmp - Jednowymiarowa tablica typu double.                             |
- |  Zwraca:                                                                   |
- |      Tablice wypelniona wartosciami podanymi w argumencie.                 |
+ *  Konstruktor klasy Vector.                                                
+ *  Argumenty:                                                               
+ *      \param[in] tmp - Jednowymiarowa tablica typu double.                            
+ *  Zwraca:                                                                  
+ *      \param[in] this - Tablice wypelniona wartosciami podanymi w argumencie.                
  */
 
 Vector::Vector(double tmp[SIZE])
@@ -33,23 +33,23 @@ Vector::Vector(double tmp[SIZE])
 
 
 /******************************************************************************
- |  Destruktor klasy Vector.                                                  |
- |  Argumenty:                                                                |
- |      Brak argumentow.                                                      |
- |  Zwraca:                                                                   |
- |      Usuwa wektor                                                          |
+ *  Destruktor klasy Vector.                                                 
+ *  Argumenty:                                                               
+ *      Brak argumentow.                                                     
+ *  Zwraca:                                                                  
+ *      \post Usuwa wektor                                                         
  */
 Vector::~Vector(){
     //std::cout<<"Deleting vector"<<std::endl;
 }
 /******************************************************************************
- |  Realizuje dodawanie dwoch wektorow.                                       |
- |  Argumenty:                                                                |
- |      this - pierwszy skladnik dodawania,                                   |
- |      v - drugi skladnik dodawania.                                         |
- |  Zwraca:                                                                   |
- |      Sume dwoch skladnikow przekazanych jako wskaznik                      |
- |      na parametr.                                                          |
+ *  Realizuje dodawanie dwoch wektorow.                                      
+ *  Argumenty:                                                               
+ *      \param[in] this - pierwszy skladnik dodawania,                                  
+ *      \param[in] v - drugi skladnik dodawania.                                        
+ *  Zwraca:                                                                  
+ *      \param[out] result - Sume dwoch skladnikow przekazanych jako wskaznik                     
+ *      na parametr.                                                         
  */
 Vector Vector::operator+(const Vector &v) const
 {
@@ -62,13 +62,13 @@ Vector Vector::operator+(const Vector &v) const
 }
 
 /******************************************************************************
- |  Realizuje odejmowanie dwoch wektorow.                                     |
- |  Argumenty:                                                                |
- |      this - pierwszy skladnik odejmowania,                                 |
- |      v - drugi skladnik odejmowania.                                       |
- |  Zwraca:                                                                   |
- |      Roznice dwoch skladnikow przekazanych jako wskaznik                   |
- |      na parametr.                                                          |
+ *  Realizuje odejmowanie dwoch wektorow.                                    
+ *  Argumenty:                                                               
+ *      \param[in] this - pierwszy skladnik odejmowania,                                
+ *      \param[in] v - drugi skladnik odejmowania.                                      
+ *  Zwraca:                                                                  
+ *      \param[in] result - Roznice dwoch skladnikow przekazanych jako wskaznik                  
+ *      na parametr.                                                         
  */
 Vector Vector::operator-(const Vector &v) const
 {
@@ -81,13 +81,13 @@ Vector Vector::operator-(const Vector &v) const
 }
 
 /******************************************************************************
- |  Realizuje mnozenie wektora przez liczbe zmiennoprzecinkowa.               |
- |  Argumenty:                                                                |
- |      this - pierwszy skladnik mnozenia (wektor),                           |
- |      v - drugi skladnik mnozenia (liczba typu double).                     |
- |  Zwraca:                                                                   |
- |      Iloczyn dwoch skladnikow przekazanych jako wskaznik                   |
- |      na parametr.                                                          |
+ *  Realizuje mnozenie wektora przez liczbe zmiennoprzecinkowa.              
+ *  Argumenty:                                                               
+ *      \param[in] this - pierwszy skladnik mnozenia (wektor),                          
+ *      \param[in] v - drugi skladnik mnozenia (liczba typu double).                    
+ *  Zwraca:                                                                  
+ *      \param[in] result - Iloczyn dwoch skladnikow przekazanych jako wskaznik                  
+ *      na parametr.                                                         
  */
 
 Vector Vector::operator*(const double &tmp) const
@@ -101,13 +101,13 @@ Vector Vector::operator*(const double &tmp) const
 }
 
 /******************************************************************************
- |  Realizuje dzielenie dwoch wektorow.                                       |
- |  Argumenty:                                                                |
- |      this - licznik dzielenia,                                             |
- |      v - mianownik dzielenia.                                              |
- |  Zwraca:                                                                   |
- |      Iloraz dwoch skladnikow przekazanych jako wskaznik                    |
- |      na parametr.                                                          |
+ *  Realizuje dzielenie dwoch wektorow.                                      
+ *  Argumenty:                                                               
+ *      \param[in] this - licznik dzielenia,                                            
+ *      \param[in] v - mianownik dzielenia.                                             
+ *  Zwraca:                                                                  
+ *      \param[in] result - Iloraz dwoch skladnikow przekazanych jako wskaznik                   
+ *      na parametr.                                                         
  */
 
 Vector Vector::operator/(const double &tmp) const
@@ -123,15 +123,15 @@ Vector Vector::operator/(const double &tmp) const
 }
 
 /******************************************************************************
- |  Funktor wektora.                                                          |
- |  Argumenty:                                                                |
- |      index - index wektora.                                                |
- |  Zwraca:                                                                   |
- |      Wartosc wektora w danym miejscu tablicy jako stala.                   |
+ *  Funktor wektora.                                                         
+ *  Argumenty:                                                               
+ *      \param[in] index - index wektora.                                               
+ *  Zwraca:                                                                  
+ *      \param[in] size - Wartosc wektora w danym miejscu tablicy jako stala.                  
  */
 const double &Vector::operator[](int index) const
 {
-    if (index < 0 || index >= SIZE)
+    if (index < 0 *| index >= SIZE)
     {
         std::cerr << "Error: Wektor jest poza zasiegiem!" << std::endl;
     }
@@ -139,11 +139,11 @@ const double &Vector::operator[](int index) const
 }
 
 /******************************************************************************
- |  Funktor wektora.                                                          |
- |  Argumenty:                                                                |
- |      index - index wektora.                                                |
- |  Zwraca:                                                                   |
- |      Wartosc wektora w danym miejscu tablicy.                              |
+ *  Funktor wektora.                                                         
+ *  Argumenty:                                                               
+ *      \param[in] index - index wektora.                                               
+ *  Zwraca:                                                                  
+ *      \param[in] Vector - Wartosc wektora w danym miejscu tablicy.                             
  */
 double &Vector::operator[](int index)
 {
@@ -151,10 +151,12 @@ double &Vector::operator[](int index)
 }
 
 /******************************************************************************
- |  Przeciazenie operatora <<                                                 |
- |  Argumenty:                                                                |
- |      out - strumien wejsciowy,                                             |
- |      tmp - wektor.                                                         |
+ *  Przeciazenie operatora <<                                                
+ *  Argumenty:                                                               
+ *      \param[in] out - strumien wyjsciowy,                                            
+ *      \param[in] tmp - wektor.   
+ *  Zwraca:
+ *      \param[out] out - strumien wyjsciowy                                                     
  */
 std::ostream &operator<<(std::ostream &out, Vector const &tmp)
 {
@@ -169,10 +171,12 @@ std::ostream &operator<<(std::ostream &out, Vector const &tmp)
 }
 
 /******************************************************************************
- |  Przeciazenie operatora >>                                                 |
- |  Argumenty:                                                                |
- |      in - strumien wyjsciowy,                                              |
- |      tmp - wektor.                                                         |
+ *  Przeciazenie operatora >>                                                
+ *  Argumenty:                                                               
+ *      \param[in] in - strumien wejsciowy,                                             
+ *      \param[in] tmp - wektor.   
+ *  Zwraca:
+ *      \param[out] in - strumien wejsciowy                                                     
  */
 std::istream &operator>>(std::istream &in, Vector &tmp)
 {
@@ -185,11 +189,11 @@ std::istream &operator>>(std::istream &in, Vector &tmp)
 }
 
 /******************************************************************************
- | Obrot wektora o kat theta wokol srodka ukladu wspolrzednych                |
- | Argumenty:                                                                 |
- |      theta - kat obrotu ( w stopniach )                                    |
- | Zwraca:                                                                    |
- |      obrocony wektor                                                       |
+ * Obrot wektora o kat theta wokol srodka ukladu wspolrzednych               
+ * Argumenty:                                                                
+ *      \param[in] theta - kat obrotu ( w stopniach )                                   
+ * Zwraca:                                                                   
+ *      \param[out] rotated - obrocony wektor                                                      
  */
 
 Vector Vector::rotate(const double &theta) const
@@ -210,11 +214,11 @@ Vector Vector::rotate(const double &theta) const
 }
 
 /******************************************************************************
- | Zwraca kwadrat modulu wektora                                              |
- | Argumenty:                                                                 |
- |      Brak                                                                  |
- | Zwraca:                                                                    |
- |      kwadrat modulu wektora                                                |
+ * Zwraca kwadrat modulu wektora                                             
+ * Argumenty:                                                                
+ *      Brak                                                                 
+ * Zwraca:                                                                   
+ *      \param[out] result - kwadrat modulu wektora                                               
  */
 double Vector::modulus2() const
 {
@@ -228,11 +232,11 @@ double Vector::modulus2() const
     return result;
 }
 /******************************************************************************
- | Zwraca dlugosc wektora                                                     |
- | Argumenty:                                                                 |
- |      Brak                                                                  |
- | Zwraca:                                                                    |
- |      dlugosc wektora                                                       |
+ * Zwraca dlugosc wektora                                                    
+ * Argumenty:                                                                
+ *      Brak                                                                 
+ * Zwraca:                                                                   
+ *      \param[out] len - dlugosc wektora                                                      
  */
 double Vector::get_len() const
 {
@@ -246,11 +250,11 @@ double Vector::get_len() const
 }
 
 /******************************************************************************
- | Zwraca kat nachylenia wektora do osi x                                     |
- | Argumenty:                                                                 |
- |      Brak                                                                  |
- | Zwraca:                                                                    |
- |      kat nachylenia w                                                       |
+ * Zwraca kat nachylenia wektora do osi x                                    
+ * Argumenty:                                                                
+ *      Brak                                                                 
+ * Zwraca:                                                                   
+ *      \param[in] angle - kat nachylenia wektora do osi x                                                      
  */
 double Vector::get_slope_angle() const
 {

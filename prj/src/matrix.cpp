@@ -1,11 +1,11 @@
 #include "matrix.hh"
 
 /******************************************************************************
- |  Konstruktor klasy Matrix.                                                 |
- |  Argumenty:                                                                |
- |      Brak argumentow.                                                      |
- |  Zwraca:                                                                   |
- |      Macierz wypelnione wartoscia 0.                                       |
+ *  Konstruktor klasy Matrix.                                                
+ *  Argumenty:                                                               
+ *      Brak argumentow.                                                     
+ *  Zwraca:                                                                  
+ *      \param[out] Matrix jednostkowa                                       
  */
 Matrix::Matrix() {
     for (int i = 0; i < SIZE; ++i) {
@@ -20,11 +20,11 @@ Matrix::Matrix() {
 
 
 /******************************************************************************
- |  Konstruktor parametryczny klasy Matrix.                                   |
- |  Argumenty:                                                                |
- |      tmp - dwuwymiarowa tablica z elementami typu double.                  |
- |  Zwraca:                                                                   |
- |      Macierz wypelniona wartosciami podanymi w argumencie.                 |
+ *  Konstruktor parametryczny klasy Matrix.                                  
+ *  Argumenty:                                                               
+ *      \param[in] tmp - dwuwymiarowa tablica z elementami typu double.                 
+ *  Zwraca:                                                                  
+ *      \param[out] Matrix wypelniona wartosciami podanymi w argumencie.                
  */
 Matrix::Matrix(double tmp[SIZE][SIZE]) {
     for (int i = 0; i < SIZE; ++i) {
@@ -34,23 +34,23 @@ Matrix::Matrix(double tmp[SIZE][SIZE]) {
     }
 }
 /******************************************************************************
- |  Destruktor klasy Matrix.                                                  |
- |  Argumenty:                                                                |
- |      Brak argumentow.                                                      |
- |  Zwraca:                                                                   |
- |      Usuwa klase                                                           |
+ *  Destruktor klasy Matrix.                                                 
+ *  Argumenty:                                                               
+ *      Brak argumentow.                                                     
+ *  Zwraca:                                                                  
+ *      \post Usuwa klase                                                          
  */
 Matrix::~Matrix(){
     //std::cout<<"Deleting matrix"<<std::endl;
 }
 
 /******************************************************************************
- |  Realizuje mnozenie macierzy przez wektor.                                 |
- |  Argumenty:                                                                |
- |      this - macierz, czyli pierwszy skladnik mnozenia,                     |
- |      v - wektor, czyli drugi skladnik mnozenia.                            |
- |  Zwraca:                                                                   |
- |      Iloczyn dwoch skladnikow przekazanych jako wektor.                    |
+ *  Realizuje mnozenie macierzy przez wektor.                                
+ *  Argumenty:                                                               
+ *      \param[in] this - macierz, czyli pierwszy skladnik mnozenia,                    
+ *      \param[in] tmp - wektor, czyli drugi skladnik mnozenia.                           
+ *  Zwraca:                                                                  
+ *      \param[out] result - Iloczyn dwoch skladnikow przekazanych jako wektor.                   
  */
 
 Vector Matrix::operator * (Vector tmp) {
@@ -65,12 +65,12 @@ Vector Matrix::operator * (Vector tmp) {
 
 
 /******************************************************************************
- |  Funktor macierzy                                                          |
- |  Argumenty:                                                                |
- |      row - numer wiersza.                                                  |
- |      column - numer kolumny.                                               |
- |  Zwraca:                                                                   |
- |      Wartosc macierzy w danym miejscu tablicy.                             |
+ *  Funktor macierzy                                                         
+ *  Argumenty:                                                               
+ *      \param[in] row - numer wiersza.                                                 
+ *      \param[in] column - numer kolumny.                                              
+ *  Zwraca:                                                                  
+ *      \param[out] value Wartosc macierzy w danym miejscu tablicy.                            
  */
 double &Matrix::operator()(unsigned int row, unsigned int column) {
 
@@ -89,12 +89,12 @@ double &Matrix::operator()(unsigned int row, unsigned int column) {
 
 
 /******************************************************************************
- |  Funktor macierzy                                                          |
- |  Argumenty:                                                                |
- |      row - numer wiersza.                                                  |
- |      column - numer kolumny.                                               |
- |  Zwraca:                                                                   |
- |      Wartosc macierzy w danym miejscu tablicy jako stala.                  |
+ *  Funktor macierzy                                                         
+ *  Argumenty:                                                               
+ *      \param[in] row - numer wiersza.                                                 
+ *      \param[in] column - numer kolumny.                                              
+ *  Zwraca:                                                                  
+ *      \param[out] Wartosc macierzy w danym miejscu tablicy jako stala.                 
  */
 const double &Matrix::operator () (unsigned int row, unsigned int column) const {
 
@@ -112,12 +112,12 @@ const double &Matrix::operator () (unsigned int row, unsigned int column) const 
 }
 
 /******************************************************************************
- |  Przeciążenie dodawania macierzy                                                          |
- |  Argumenty:                                                                |
- |      this - macierz, czyli pierwszy skladnik dodawania,                     |
- |      v - wektor, czyli drugi skladnik dodawania.                                               |
- |  Zwraca:                                                                   |
- |      Macierz - iloczyn dwóch podanych macierzy.                  |
+ *  Przeciążenie dodawania macierzy                                                         
+ *  Argumenty:                                                               
+ *      \param[in] this - macierz, czyli pierwszy skladnik dodawania,                    
+ *      \param[in] v - wektor, czyli drugi skladnik dodawania.                                              
+ *  Zwraca:                                                                  
+ *      \param[out] Macierz - iloczyn dwóch podanych macierzy.                 
  */
 Matrix Matrix::operator + (Matrix tmp) {
     Matrix result;
@@ -130,10 +130,12 @@ Matrix Matrix::operator + (Matrix tmp) {
 }
 
 /******************************************************************************
- |  Przeciazenie operatora >>                                                 |
- |  Argumenty:                                                                |
- |      in - strumien wyjsciowy,                                              |
- |      mat - macierz.                                                         |
+ *  Przeciazenie operatora >>                                                
+ *  Argumenty:                                                               
+ *      \param[in] in - strumien wejsciowy,                                             
+ *      \param[in] mat - macierz. 
+ *  Zwraca:
+ *      \param[out] in - strumien wejsciowy                                                       
  */
 std::istream &operator>>(std::istream &in, Matrix &mat) {
     for (int i = 0; i < SIZE; ++i) {
@@ -146,16 +148,18 @@ std::istream &operator>>(std::istream &in, Matrix &mat) {
 
 
 /******************************************************************************
- |  Przeciazenie operatora <<                                                 |
- |  Argumenty:                                                                |
- |      out - strumien wejsciowy,                                             |
- |      mat - macierz.                                                        |
+ *  Przeciazenie operatora <<                                                
+ *  Argumenty:                                                               
+ *      \param[in] out - strumien wyjsciowy,                                            
+ *      \param[in] mat - macierz.     
+ *  Zwraca:
+ *      \param[out] out - strumien wyjsciowy                                                  
  */
 std::ostream &operator<<(std::ostream &out, const Matrix &mat) {
     out.precision(10);
     for (int i = 0; i < SIZE; ++i) {
         for (int j = 0; j < SIZE; j++) {
-            out << "| " << mat(i, j) << " | "; //warto ustalic szerokosc wyswietlania dokladnosci liczb
+            out << "| " << mat(i, j) << " * "; //warto ustalic szerokosc wyswietlania dokladnosci liczb
         }
         std::cout << std::endl;
     }

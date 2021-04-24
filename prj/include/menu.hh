@@ -3,6 +3,15 @@
 #include"rectangle.hh"
 #include <iostream>
 
+/*!
+ * \file  mmenu.hh
+ *  
+ *  Plik zawiera definicję klasy reprezentujacej menu
+ *  programu rysujacego figury 2D
+ */
+
+
+
 class menu{
 
     private:

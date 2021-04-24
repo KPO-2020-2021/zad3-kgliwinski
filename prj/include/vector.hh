@@ -5,6 +5,20 @@
 #include <iostream>
 #include <cmath>
 #include <iomanip>
+/*!
+ * \file  vector.hh
+ *  
+ *  Plik zawiera definicję klasy reprezentujacej wektor
+ *  o wymiarach SIZEx1
+ */
+
+
+
+
+
+/*! \class Vector
+ *  \brief Opisuje wektor o n-wierszach
+ */
 class Vector {
 
 private:

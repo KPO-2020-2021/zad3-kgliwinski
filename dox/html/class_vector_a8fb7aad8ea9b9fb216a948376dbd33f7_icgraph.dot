@@ -1,0 +1,10 @@
+digraph "Vector::modulus2"
+{
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="RL";
+  Node1 [label="Vector::modulus2",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip=" "];
+  Node1 -> Node2 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node2 [label="Vector::get_len",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_vector.html#ab1e5a9220e63e4a7e23a9fea092cacc7",tooltip=" "];
+}

@@ -1,0 +1,20 @@
+digraph "Rectangle::rotation_n_times"
+{
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node1 [label="Rectangle::rotation\l_n_times",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip=" "];
+  Node1 -> Node2 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node2 [label="Rectangle::check_rec",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_rectangle.html#ae2f12f2dff9325d38414e4cc84be2fb9",tooltip=" "];
+  Node2 -> Node3 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node3 [label="Rectangle::check_angle_rec",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_rectangle.html#a889b30a8bed407b62bfaf71e99316072",tooltip=" "];
+  Node3 -> Node4 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node4 [label="Rectangle::check_angle\l_straight",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_rectangle.html#af460673d51166643cc86948388b3edc3",tooltip=" "];
+  Node2 -> Node5 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node5 [label="Rectangle::check_len_opp",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_rectangle.html#a8cec5b810189f61ab48e800641a591ec",tooltip=" "];
+  Node1 -> Node6 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node6 [label="Rectangle::rotate",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_rectangle.html#a24ab424d5bbe2674aa5b65ada2377879",tooltip=" "];
+  Node6 -> Node7 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node7 [label="Vector::rotate",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_vector.html#a1cb3e8701f02304fc378e5170a3aaf16",tooltip=" "];
+}

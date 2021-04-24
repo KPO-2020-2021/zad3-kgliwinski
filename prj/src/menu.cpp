@@ -12,7 +12,7 @@ menu::menu(){
 /******************************************************************************
  | Inicjuje menu                                                              |
  | Argumenty:                                                                 |
- |      tablica 4 wektorow                                                    |
+ |      \param[in] tab - tablica 4 wektorow                                                    |
  | Zwraca:                                                                    |
  |      brak                                                                  |
  */
@@ -43,8 +43,8 @@ std::cout<<"k - koniec dzialania programu\n";
 /******************************************************************************
  | Obsluga petli switch dla menu                                              |
  | Argumenty:                                                                 |
- |      char oper - opcja menu                                                |
- |      Rectangle rec - wczytywany prostokat                                  |
+ |      \param[in] oper - opcja menu                                                |
+ |      \param[in] rec - wczytywany prostokat                                  |
  | Zwraca:                                                                    |
  |      brak                                                                  |
  */
