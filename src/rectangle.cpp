@@ -213,4 +213,41 @@ if(!check_angle_rec(sides))
 return 1;
 }
 
+void Rectangle::RectangleToStdout(std::ostream &out)
+{
+    int i;
+    for (i=0;i<4;++i){
+        out<<std::setw(10) << std::fixed << std::setprecision(10) << top[i][0] <<" " << top[i][1] << std::endl;
+    }
+    out<<top[0][0] <<" " << top[0][1] << std::endl;
+}
 
+/*!
+ * Przyklad zapisu wspolrzednych zbioru punktow do pliku, z ktorego
+ * dane odczyta program gnuplot i narysuje je w swoim oknie graficznym.
+ * \param[in] sNazwaPliku - nazwa pliku, do którego zostana zapisane
+ *                          wspolrzędne punktów.
+ * \param[in] Przesuniecie - ten parameter jest tylko po to, aby pokazać
+ *                          mozliwosc zmiany wspolrzednych i prostokata
+ *                          i zmiane jego polozenia na okienku graficznym
+ *                         rysownym przez gnuplota.
+ * \retval true - gdy operacja zapisu powiodła się,
+ * \retval false - w przypadku przeciwnym.
+ */
+bool Rectangle::RectangleToFile(const char *sNazwaPliku)
+{
+       std::ofstream StrmPlikowy;
+
+       StrmPlikowy.open(sNazwaPliku);
+       if (!StrmPlikowy.is_open())
+       {
+              std::cerr << ":(  Operacja otwarcia do zapisu \"" << sNazwaPliku << "\"" << std::endl
+                        << ":(  nie powiodla sie." << std::endl;
+              return false;
+       }
+
+       this->RectangleToStdout(StrmPlikowy);
+
+       StrmPlikowy.close();
+       return !StrmPlikowy.fail();
+}

@@ -2,7 +2,9 @@
 
 #include "vector.hh"
 #include "size.hh"
+#include <fstream>
 #include <iostream>
+#include <iomanip>
 class Rectangle{
 
 Vector top[4]; //wierzcholki prostokata
@@ -27,6 +29,10 @@ bool check_angle_rec(Vector const (&vecs)[4]) const;
 bool check_angle_straight(double ang) const;
 
 bool check_rec() const;
+
+void RectangleToStdout(std::ostream &StrmWy);
+
+bool RectangleToFile(const char *sNazwaPliku);
 };
 
 std::ostream &operator<<(std::ostream &out,  Rectangle const &Rec);

@@ -43,6 +43,7 @@ set(SOURCES          # All .cpp files in src/
     src/vector.cpp
     src/matrix.cpp
     src/rectangle.cpp
+    src/menu.cpp
 )
 set(TESTFILES        # All .cpp files in tests/
     tests/main.cpp
