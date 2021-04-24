@@ -33,6 +33,7 @@
 *.x
 
 # Build directory
-build/*
+prj/build/*
 dox/*
 .vscode/
+
