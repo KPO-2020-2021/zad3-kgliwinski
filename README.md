@@ -15,4 +15,16 @@ Example:
 > make doc       # Generate html documentation.
 ```
 
+*IMPORTANT NOTE: ROTATION BY A CERTAIN ANGLE N TIMES WORKS PROPERLY (DOES NOT PRESENT ANY PROBLEMS WITH RECTANGLE'S COORDINATES UNWANTED CHANGE)*
 
+Program zrobiony jest w ten sposob ze przy wielokrotnych obrotach wymiary pozostaja te same, a prostokat sie nie rozjezdza
+
+``` Menu: 
+o - obrot prostokata o zadany kat             /rectangle rotation
+p - przesuniecie prostokata o zadany wektor   /rectangle translation
+w - wyswietlenie wspolrzednych wierzcholkow   /print rectangle tops
+m - wyswietl menu                             /show mennu
+k - koniec dzialania programu                 /close program
+```
+
+## Tests
