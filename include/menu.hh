@@ -1,3 +1,5 @@
+#pragma once
+
 #include"rectangle.hh"
 #include <iostream>
 
@@ -11,15 +13,12 @@ class menu{
     
     menu();
 
-    void rotation();
-
-    void translation();
-
-    void show_tops();
+    void init_menu(Vector const (&tab)[4]);
 
     void show_menu();
 
-    void finish();
+    void switch_menu(char oper);
 
+    
 };
 

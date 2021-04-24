@@ -94,6 +94,7 @@ int main()
 
        std::cout << "Obrocony wektor o " << z << " stopni" << std::endl << tmpV3 << " to " << std::endl << tmpV3_rotated;
 
+       Rectangle tmpRn = tmpR2.rotation_n_times();
        PzG::LaczeDoGNUPlota Lacze; // Ta zmienna jest potrzebna do wizualizacji
                                    // rysunku prostokata
 
@@ -116,7 +117,7 @@ int main()
        //
        Lacze.ZmienTrybRys(PzG::TR_2D);
 
-
+       std::cin.ignore(100000, '\n');
        tmpR2.RectangleToStdout(std::cout);
        if (!tmpR2.RectangleToFile("../datasets/prostokat.dat"))
               return 1;

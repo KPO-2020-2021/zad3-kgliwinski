@@ -172,7 +172,7 @@ bool Rectangle::check_angle_rec(Vector const (&vecs)[4]) const{
         std::cerr<<"Error: katy prostokata nie sa proste!"<<std::endl;
              return 0;
     }   
-    std::cout << "Wszystkie katy prostokata sa proste" << std::endl;
+    std::cout << "Wszystkie katy prostokata sa proste." << std::endl << std::endl;
     return 1;
 }
 
@@ -213,6 +213,22 @@ if(!check_angle_rec(sides))
 return 1;
 }
 
+Rectangle Rectangle::rotation_n_times(){
+    Rectangle tmp;
+    double ang, ang_rep;
+    int rep;
+    std::cout<<"Podaj wartosc kata obrotu w stopniach" << std::endl;
+    std::cin>>ang;
+    std::cout<<"Ile razy operacja obrotu ma byc powtorzona?" << std::endl;
+    std::cin>>rep;
+    double dorep = rep;
+    ang_rep = ang*dorep;
+    tmp = this->rotate(ang_rep);
+    tmp.check_rec();
+    return tmp;
+}
+
+
 void Rectangle::RectangleToStdout(std::ostream &out)
 {
     int i;
@@ -251,3 +267,4 @@ bool Rectangle::RectangleToFile(const char *sNazwaPliku)
        StrmPlikowy.close();
        return !StrmPlikowy.fail();
 }
+

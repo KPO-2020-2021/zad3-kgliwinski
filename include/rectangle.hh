@@ -32,6 +32,8 @@ bool check_rec() const;
 
 void RectangleToStdout(std::ostream &StrmWy);
 
+Rectangle rotation_n_times();
+
 bool RectangleToFile(const char *sNazwaPliku);
 };
 
