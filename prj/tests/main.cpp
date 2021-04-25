@@ -729,6 +729,16 @@ TEST_CASE("R 4.02: Rectangle::check false"){
     Rectangle a(a1);
     CHECK (a.check_rec()==1);
 }
+
+TEST_CASE("Mod 4.02: Matrix::gauss()"){
+    double args[4][2]= {{000.0, 400.0},{100.0, 300.0},{300.0, 300.0},{300.0, 400.0}};
+       Vector a1[4];
+       for (int i=0;i<4;i++){
+              a1[i]=Vector(args[i]);
+       } 
+    Rectangle a(a1);
+    CHECK (a.check_rec()==1);
+}
 /*
     std::istringstream in("(1+10i)");
     in >> x;

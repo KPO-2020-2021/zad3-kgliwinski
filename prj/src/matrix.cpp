@@ -123,6 +123,24 @@ Matrix Matrix::operator + (Matrix tmp) {
     Matrix result;
     for (int i = 0; i < SIZE; ++i) {
         for (int j = 0; j < SIZE; j++) {
+            result(i, j) = this->value[i][j] - tmp(i, j);
+        }
+    }
+    return result;
+}
+
+/******************************************************************************
+ *  Przeciążenie odejmowania macierzy                                                         
+ *  Argumenty:                                                               
+ *      \param[in] this - macierz, czyli pierwszy skladnik dodawania,                    
+ *      \param[in] v - wektor, czyli drugi skladnik dodawania.                                              
+ *  Zwraca:                                                                  
+ *      \param[out] Macierz - iloczyn dwóch podanych macierzy.                 
+ */
+Matrix Matrix::operator - (Matrix tmp) {
+    Matrix result;
+    for (int i = 0; i < SIZE; ++i) {
+        for (int j = 0; j < SIZE; j++) {
             result(i, j) = this->value[i][j] + tmp(i, j);
         }
     }
@@ -183,4 +201,45 @@ bool Matrix::operator == (Matrix const &tmp) const{
         }
     }
     return 1;
+}
+/******************************************************************************
+ *  Zwraca macierz schodkowa utworzona przez eliminacje gaussa                                                        
+ *  Argumenty:                                                               
+ *      \param[in] this - macierz dla ktorej chcemy przeprowadzic operacje                                                           
+ *  Zwraca:                                                                  
+ *      \param[out] mat - macierz schodkowa              
+ */
+Matrix Matrix::gauss() const{
+    Matrix mat;
+
+    int i,j,k;
+    double ratio;
+    for (i=0;i<SIZE;++i){
+        if (value[i][i] == 0)
+            return 0;
+        for (j=i+1; j<SIZE; ++j){
+            ratio = value[j][i] / value[i][i];
+            for (k=1; k<SIZE; ++k){
+                mat.value[j][k] = (value[j][k] - ratio*value[i][k]);
+            }
+        }
+    }
+    return mat;
+}
+/******************************************************************************
+ *  Zwraca wyznacznik macierzy                                                       
+ *  Argumenty:                                                               
+ *      \param[in] this - macierz, ktorej wyznacznik liczymy                                                             
+ *  Zwraca:                                                                  
+ *      \param[out] det - wyznacznik               
+ */
+double Matrix::determinant() const{
+    double det;
+    int i;
+    Matrix tmp = this->gauss();
+    det = 1;
+    for (i=0;i<SIZE;++i){
+        det*=tmp.value[i][i];
+    }
+    return det;
 }
