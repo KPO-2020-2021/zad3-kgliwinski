@@ -123,7 +123,7 @@ Matrix Matrix::operator + (Matrix tmp) {
     Matrix result;
     for (int i = 0; i < SIZE; ++i) {
         for (int j = 0; j < SIZE; j++) {
-            result(i, j) = this->value[i][j] - tmp(i, j);
+            result(i, j) = this->value[i][j] + tmp(i, j);
         }
     }
     return result;
@@ -141,7 +141,7 @@ Matrix Matrix::operator - (Matrix tmp) {
     Matrix result;
     for (int i = 0; i < SIZE; ++i) {
         for (int j = 0; j < SIZE; j++) {
-            result(i, j) = this->value[i][j] + tmp(i, j);
+            result(i, j) = this->value[i][j] - tmp(i, j);
         }
     }
     return result;
