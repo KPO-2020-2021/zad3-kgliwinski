@@ -3,6 +3,7 @@
 #include "vector.hh"
 #include "size.hh"
 #include "lacze_do_gnuplota.hh"
+#include "matrix.hh"
 #include <fstream>
 #include <iostream>
 #include <iomanip>
@@ -57,6 +58,8 @@ Rectangle rotation_n_times();
 bool RectangleToFile(const char *sNazwaPliku);  
 //wyswietla w gnuplocie
 void PrintRectangle();  
+
+bool operator == (const Rectangle &rec) const;
 };
 
 std::ostream &operator<<(std::ostream &out,  Rectangle const &Rec); //przeciazenie wyjscia

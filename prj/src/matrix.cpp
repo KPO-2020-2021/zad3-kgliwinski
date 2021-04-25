@@ -159,10 +159,28 @@ std::ostream &operator<<(std::ostream &out, const Matrix &mat) {
     out.precision(10);
     for (int i = 0; i < SIZE; ++i) {
         for (int j = 0; j < SIZE; j++) {
-            out << "| " << mat(i, j) << " * "; //warto ustalic szerokosc wyswietlania dokladnosci liczb
+            out << "| " <<std::setw(10) << std::fixed << std::setprecision(10) << mat(i, j) << " * "; //warto ustalic szerokosc wyswietlania dokladnosci liczb
         }
         std::cout << std::endl;
     }
     return out;
 }
-
+/******************************************************************************
+ *  Przeciążenie == macierzy                                                         
+ *  Argumenty:                                                               
+ *      \param[in] this - macierz, ktora porownujemy                   
+ *      \param[in] tmp - macierz, z ktora porownujemy                                                          
+ *  Zwraca:                                                                  
+ *      \retval true - jesli sa rowne
+ *      \retval false - jesli nie sa                
+ */
+bool Matrix::operator == (Matrix const &tmp) const{
+    int i,j;
+    for (i=0;i<SIZE;++i){
+        for (j=0;j<SIZE;++j){
+            if (!(abs(value[i][j]-tmp.value[i][j])<=0.000001))
+                return 0;
+        }
+    }
+    return 1;
+}

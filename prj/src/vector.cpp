@@ -136,7 +136,7 @@ Vector Vector::operator/(const double &tmp) const
 bool  Vector::operator == (const Vector &v) const{
     int i;
     for (i=0;i<SIZE;i++){
-        if (!((abs(size[i] - v.size[i]) <= 0.000000001)))
+        if (!((abs(size[i] - v.size[i]) <= 0.000001)))
             return 0;
     }
     return 1;

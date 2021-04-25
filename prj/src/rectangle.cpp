@@ -351,4 +351,21 @@ void Rectangle::PrintRectangle(){
        std::cout << "Naciśnij ENTER, aby kontynuowac" << std::endl;
        std::cin.ignore(100000, '\n');
 }
+/******************************************************************************
+ *  Przeciążenie == prostokata                                                         
+ *  Argumenty:                                                               
+ *      \param[in] this - prostokat, ktora porownujemy                   
+ *      \param[in] tmp - prostokat, z ktora porownujemy                                                          
+ *  Zwraca:                                                                  
+ *      \retval true - jesli sa rowne
+ *      \retval false - jesli nie sa                
+ */
+bool Rectangle::operator == (const Rectangle &rec) const{
+    int i;
+    for (i=0;i<4;++i){
+        if (!(top[i]==rec.top[i]))
+            return 0;
+    }
+    return 1;
+}
 

@@ -32,6 +32,8 @@ public:
 
     Matrix operator + (Matrix tmp);
 
+    bool operator == (Matrix const &tmp) const;
+
     double  &operator () (unsigned int row, unsigned int column);
     
     const double &operator () (unsigned int row, unsigned int column) const;
