@@ -121,6 +121,23 @@ Vector Vector::operator/(const double &tmp) const
 
     return result;
 }
+/******************************************************************************
+ *  Sprawdza czy wektory sa rowne                                      
+ *  Argumenty:                                                               
+ *      \param[in] this - l,                                            
+ *      \param[in] v - r.                                             
+ *  Zwraca:                                                                  
+ *     \retval true - sa rowne
+ *     \retval false - nie sa rowne                                                        
+ */
+bool  Vector::operator == (const Vector &v) const{
+    int i;
+    for (i=0;i<SIZE;i++){
+        if (!((abs(size[i] - v.size[i]) <= 0.000000001)))
+            return 0;
+    }
+    return 1;
+}
 
 /******************************************************************************
  *  Funktor wektora.                                                         
@@ -273,3 +290,4 @@ double Vector::get_slope_angle() const
     }
     return angle;
 }
+

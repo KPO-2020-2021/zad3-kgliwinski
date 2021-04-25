@@ -351,3 +351,4 @@ void Rectangle::PrintRectangle(){
        std::cout << "Naciśnij ENTER, aby kontynuowac" << std::endl;
        std::cin.ignore(100000, '\n');
 }
+

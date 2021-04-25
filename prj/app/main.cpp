@@ -14,10 +14,10 @@
 
 #include "exampleConfig.h"
 #include "example.h"
-#include "vector.hh"
-#include "matrix.hh"
-#include "rectangle.hh"
-#include "menu.hh"
+#include "../include/vector.hh"
+#include "../include/matrix.hh"
+#include "../include/vector.hh"
+#include "../include/menu.hh"
 #include "../include/lacze_do_gnuplota.hh"
 
 /*!

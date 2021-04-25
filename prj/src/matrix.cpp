@@ -165,3 +165,4 @@ std::ostream &operator<<(std::ostream &out, const Matrix &mat) {
     }
     return out;
 }
+

@@ -41,6 +41,8 @@ public:
 
     Vector operator / (const double &tmp) const;
 
+    bool operator == (const Vector &v) const;
+
     Vector rotate(const double &theta) const;
 
     double modulus2() const;
