@@ -732,11 +732,36 @@ TEST_CASE("R 4.02: Rectangle::check false"){
 
 TEST_CASE("Mod 1.01: Matrix::gauss()"){
     double tab[2][2] = {{1,2},{3,4}};
-    double tab2[2][2] = {{1,0},{0,-2}};
+    double tab2[2][2] = {{1,2},{0,-2}};
     Matrix a(tab);
     Matrix b(tab2);
 
     CHECK ((a.gauss()) == b);
+}
+
+TEST_CASE("Mod 1.02: Matrix::gauss() 2"){
+    double tab[2][2] = {{3,2},{3,4}};
+    double tab2[2][2] = {{3,2},{0,2}};
+    Matrix a(tab);
+    Matrix b(tab2);
+
+    CHECK ((a.gauss()) == b);
+}
+
+TEST_CASE("Mod 1.03: Matrix::determinant() 1"){
+    double tab[2][2] = {{1,2},{3,4}};
+    Matrix a(tab);
+    double det; 
+    det = -2;
+    CHECK ((a.determinant()) == det);
+}
+
+TEST_CASE("Mod 1.03: Matrix::determinant() 2"){
+    double tab[2][2] = {{3,2},{3,4}};
+    Matrix a(tab);
+    double det; 
+    det = 6;
+    CHECK ((a.determinant()) == det);
 }
 /*
     std::istringstream in("(1+10i)");

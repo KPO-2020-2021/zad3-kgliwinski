@@ -210,16 +210,16 @@ bool Matrix::operator == (Matrix const &tmp) const{
  *      \param[out] mat - macierz schodkowa              
  */
 Matrix Matrix::gauss() const{
-    Matrix mat;
+    Matrix mat = *this;
 
     int i,j,k;
     double ratio;
-    for (i=0;i<SIZE;++i){
+    for (i=0;i<SIZE-1;i++){
         if (value[i][i] == 0)
             return 0;
-        for (j=i+1; j<SIZE; ++j){
+        for (j=i+1; j<SIZE; j++){
             ratio = value[j][i] / value[i][i];
-            for (k=1; k<SIZE; ++k){
+            for (k=0; k<SIZE; k++){
                 mat.value[j][k] = (value[j][k] - ratio*value[i][k]);
             }
         }
