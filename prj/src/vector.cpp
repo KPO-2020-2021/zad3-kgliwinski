@@ -113,7 +113,10 @@ Vector Vector::operator*(const double &tmp) const
 Vector Vector::operator/(const double &tmp) const
 {
     Vector result;
-
+    if (tmp==0){
+        std::cerr << "ERROR: Nie mozna dzielic przez 0" << std::endl;
+        return *this;
+    }
     for (int i = 0; i < SIZE; ++i)
     {
         result[i] = size[i] / tmp;

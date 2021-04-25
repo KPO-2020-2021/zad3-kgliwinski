@@ -120,14 +120,108 @@ TEST_CASE("V 3.03: Vector odejmowanie wektorow dla malych wartosci (dokladnosc p
 
 TEST_CASE("V 3.04: Vector odejmowanie wektorow dla duzych wartosci, granicze wartosci"){
     double tab[3][2] = {{99999,99999},{1,1},{100000,100000}};
-    Vector a(tab[3]);
-    Vector b(tab[1]);
-    Vector res(tab[2]);
+    Vector a(tab[2]);
+    Vector b(tab[0]);
+    Vector res(tab[1]);
 
     Vector sum = a-b;
     CHECK(res == sum);
 }
 
+TEST_CASE("V 4.01: Vector mnozenie wektorow przez skalar"){
+    double tab[2][2] = {{4,2},{136,68}};
+    double tmp;
+    Vector a(tab[0]);
+    tmp =34;
+    Vector b = a*tmp;
+    Vector res(tab[1]);
+
+    
+    CHECK(res == b);
+}
+
+TEST_CASE("V 4.02: Vector mnozenie wektorow przez maly skalar"){
+    double tab[2][2] = {{4,2},{0.000000004,0.0000000002}};
+    double tmp;
+    Vector a(tab[0]);
+    tmp =0.000000001;
+    Vector b = a*tmp;
+    Vector res(tab[1]);
+
+    
+    CHECK(res == b);
+}
+
+TEST_CASE("V 4.03: Vector mnozenie wektorow przez 0"){
+    double tab[2][2] = {{4,2},{0,0}};
+    double tmp;
+    Vector a(tab[0]);
+    tmp =0;
+    Vector b = a*tmp;
+    Vector res(tab[1]);
+
+    
+    CHECK(res == b);
+}
+
+TEST_CASE("V 4.04: Vector mnozenie wektora zerowego przez skalar"){
+    double tab[2][2] = {{0,0},{0,0}};
+    double tmp;
+    Vector a(tab[0]);
+    tmp =1231234;
+    Vector b = a*tmp;
+    Vector res(tab[1]);
+
+    
+    CHECK(res == b);
+}
+
+TEST_CASE("V 5.01: Vector dzielenie wektorow przez skalar"){
+    double tab[2][2] = {{4,2},{2,1}};
+    double tmp;
+    Vector a(tab[0]);
+    tmp =2;
+    Vector b = a/tmp;
+    Vector res(tab[1]);
+
+    
+    CHECK(res == b);
+}
+
+TEST_CASE("V 5.02: Vector dzielenie wektorow przez maly skalar"){
+    double tab[2][2] = {{4,2},{40000000000,20000000000}};
+    double tmp;
+    Vector a(tab[0]);
+    tmp =0.000000001;
+    Vector b = a/tmp;
+    Vector res(tab[1]);
+
+    
+    CHECK(res == b);
+}
+
+TEST_CASE("V 5.03: Vector dzielenie wektorow przez 0"){
+    double tab[2][2] = {{4,2},{0,0}};
+    double tmp;
+    Vector a(tab[0]);
+    tmp =0;
+    Vector b = a/tmp;
+    Vector res(tab[1]);
+
+    CHECK(!(a == b));
+}
+
+TEST_CASE("V 5.04: Vector dzielenie wektora zerowego przez skalar"){
+    double tab[2][2] = {{0,0},{0,0}};
+    double tmp;
+    Vector a(tab[0]);
+    tmp =1231234;
+    Vector b = a*tmp;
+    Vector res(tab[1]);
+
+    
+    CHECK(res == b);
+}
 /*
     std::istringstream in("(1+10i)");
     in >> x;
