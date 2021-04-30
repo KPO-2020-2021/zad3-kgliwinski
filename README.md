@@ -45,8 +45,8 @@ On a Release type build
   ##Test run:
   ```
   ===============================================================================
-[doctest] test cases: 72 | 72 passed | 0 failed | 0 skipped
-[doctest] assertions: 72 | 72 passed | 0 failed |
+[doctest] test cases: 75 | 75 passed | 0 failed | 0 skipped
+[doctest] assertions: 75 | 75 passed | 0 failed |
 [doctest] Status: SUCCESS!
   ```
 
