@@ -43,6 +43,8 @@ public:
     Matrix gauss() const;
 
     double determinant() const;
+
+    Matrix multiply(Matrix const &mat) const;
 };
 
 std::istream &operator>>(std::istream &in, Matrix &mat);

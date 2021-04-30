@@ -243,3 +243,28 @@ double Matrix::determinant() const{
     }
     return det;
 }
+
+/******************************************************************************
+ *  Zwraca wynik mnozenia dwoch macierzy                                                      
+ *  Argumenty:                                                               
+ *      \param[in] this - macierz 1 (L)
+ *      \param mat - macierz 2 (P)                                                             
+ *  Zwraca:                                                                  
+ *      \param[out] res - wynik mnozenia macierzy               
+ */
+Matrix Matrix::multiply(Matrix const &mat) const{
+    int i,j,k;
+    Matrix res;
+    for (i=0; i<SIZE; i++){
+        res.value[i][i] = 0;    //zerowanie elementow macierzy ktore sa rowne 1 
+                                //(z konstruktora bezparametrycznego)
+    }
+    for (i=0; i< SIZE; ++i){
+        for (j=0; j< SIZE; ++j){
+            for (k=0;k<SIZE;k++){
+                res.value[i][j]+= value[i][k] * mat.value[k][j];
+            }
+        }
+    }
+    return res;
+}

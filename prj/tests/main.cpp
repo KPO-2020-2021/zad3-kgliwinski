@@ -763,6 +763,34 @@ TEST_CASE("Mod 1.03: Matrix::determinant() 2"){
     det = 6;
     CHECK ((a.determinant()) == det);
 }
+
+TEST_CASE("Mod 2.01: Matrix::multiply() 1"){
+    double tab[2][2] = {{3,2},{3,4}};
+    Matrix a(tab);  //macierz jednostkowa
+    Matrix b;
+    double tab_res[2][2] = {{3,2},{3,4}};
+    Matrix res(tab_res);
+    CHECK (a.multiply(b) == res);
+}
+
+TEST_CASE("Mod 2.02: Matrix::multiply() 2"){
+    double tab[2][2] = {{1,2},{3,4}};
+    Matrix a(tab);  //macierz jednostkowa
+    Matrix b(tab);
+    double tab_res[2][2] = {{7,10},{15,22}};
+    Matrix res(tab_res);
+    CHECK (a.multiply(b) == res);
+}
+
+TEST_CASE("Mod 2.03: Matrix::multiply() 3"){
+    double tab[2][2] = {{-1,0},{12,4}};
+    double tab2[2][2] = {{12,7},{1,5}};
+    Matrix a(tab);  //macierz jednostkowa
+    Matrix b(tab2);
+    double tab_res[2][2] = {{-12,-7},{148,104}};
+    Matrix res(tab_res);
+    CHECK (a.multiply(b) == res);
+}
 /*
     std::istringstream in("(1+10i)");
     in >> x;
