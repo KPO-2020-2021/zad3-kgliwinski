@@ -31,9 +31,23 @@ k - koniec dzialania programu                 /close program
 All tests which throw an ERROR are commented in code to work and all inconsistencies are written here.
 
 IN TEST: V 5.02: Vector dzielenie wektorow przez maly skalar
+
+#To run tests from test/main cpp run:
+```
+./unit_tests
+```
+On a Release type build
 ```
 /home/krzysztof/PO/zad3-kgliwinski/prj/tests/main.cpp:200: ERROR: CHECK( res == b ) is NOT correct!
   values: CHECK( [ 40000000000.0000000000 ] [ 20000000000.0000000000 ] == [ 3999999999.9999995232 ] [ 1999999999.9999997616 ] 
+  ```
+  
+  ##Test run:
+  ```
+  ===============================================================================
+[doctest] test cases: 72 | 72 passed | 0 failed | 0 skipped
+[doctest] assertions: 72 | 72 passed | 0 failed |
+[doctest] Status: SUCCESS!
   ```
 
 
